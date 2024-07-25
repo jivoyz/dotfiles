@@ -1,0 +1,60 @@
+@import url("./themes/Dracula.css");
+
+* {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+window#waybar {
+  background-color: @bar-bg;
+  border-radius: 0px;
+}
+
+#workspaces button {
+  transition: 0.3s all;
+  border-radius: 0px;
+  padding: 0 4px;
+  /*margin: 1px 2px;*/
+  color: @fg;
+  background-color: transparent;
+}
+
+#workspaces button:hover {
+  background-color: transparent;
+}
+
+#workspaces button.active {
+  background-color: @workspace-active;
+}
+
+#hardware,
+#power,
+#info,
+#workspaces,
+#window,
+#tray,
+#custom-spotify {
+  margin: 0px 4px;
+}
+
+#cpu,
+#memory,
+#clock,
+#network,
+#backlight,
+#pulseaudio,
+#custom-power,
+#custom-logo,
+#custom-updates,
+#custom-spotify,
+#custom-notification,
+#tray,
+#window,
+#language {
+  color: @fg;
+  padding: 0 7px;
+}
+
+#custom-power {
+  padding: 0 16px 0 12px;
+}

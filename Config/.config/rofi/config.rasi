@@ -1,0 +1,125 @@
+configuration {
+    modi: "run,drun,window";
+    show-icons: true;
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "Apps";
+    display-run: "Run";
+    display-window: "Window";
+    display-Network: "Network";
+    font: "JetBrainsMono Nerd Font 14";
+    sidebar-mode: true;
+}
+// @theme "~/.cache/wal/colors-rofi-dark.rasi"
+@theme "./theme.rasi"
+
+element-text, element-icon , mode-switcher {
+  background-color: inherit;
+  text-color:       inherit;
+}
+
+window {
+  width: 35%;
+  height: 560px;
+  background-color: @bg;
+  border-radius: 10px;
+  border-color: @border;
+  border: 2px;
+}
+
+mainbox {
+  background-color: @bg;
+}
+
+inputbar {
+  children: [prompt,entry];
+  background-color: @bg;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+prompt {
+  background-color: @border;
+  enabled: true;
+  padding: 6px;
+  text-color: @text;
+  border-radius: 10px 0 0 10px;
+  margin: 20px -15px 0px 10px;
+}
+
+textbox-prompt-colon {
+  expand: true;
+  str: ":";
+}
+
+entry {
+  padding: 6px;
+  margin: 20px 0px 0px 10px;
+  text-color: @text;
+  background-color: @bg;
+  border-radius: 0 4px 4px 0;
+  border: 2px;
+  placeholder: "Search...";
+}
+
+listview {
+  border: 0px 0px 0px;
+  padding: 6px;
+  margin: 10px 8px 0px 10px;
+  columns: 1;
+  lines: 5;
+  background-color: @bg;
+}
+
+element {
+  padding: 4px;
+  background-color: @bg;
+  text-color: @text;
+  border-radius: 4px;
+}
+
+element-icon {
+  size: 36px;
+}
+
+element selected {
+  background-color: @bg-selected;
+  text-color: @text-selected;
+}
+
+mode-switcher {
+  spacing: 0;
+  enabled: false;
+}
+
+button {
+  padding: 10px;
+  background-color: @btn-bg;
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+  enabled: true;
+  text-color: @text;
+  border-radius: 4px;
+}
+
+button selected {
+  background-color: @btn-bg-selected;
+}
+
+message {
+  background-color: @bg;
+  text-color: @text;
+  margin: 2px;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+textbox {
+  padding: 6px;
+  margin: 20px 0px 0px 20px;
+  text-color: @text;
+  background-color: @bg;
+}
