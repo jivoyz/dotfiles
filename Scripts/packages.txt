@@ -27,12 +27,13 @@ eog
 vlc
 imagemagick
 nwg-look
-ttf-cascadia-code-nerd
+ttf-jetbrains-mono-nerd
 
 git
 jq
 fzf
 zellij
+tmux
 eza
 pamixer
 networkmanager
