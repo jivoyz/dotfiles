@@ -3,7 +3,10 @@ xdg-desktop-portal-hyprland
 hyprlock
 hyprcursor
 waybar
+waybar-module-pacman-updates-git
 kitty
+wl-clipboard
+cliphist
 swww
 rofi-lbonn-wayland-only-git
 nemo
