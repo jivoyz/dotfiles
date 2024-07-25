@@ -17,18 +17,6 @@ sleep 15
 pacmanList=()
 aurList=()
 
-echo "\n Choose AUR helper:"
-echo "[1] yay"
-echo "[2] paru"
-read -p "===> " getAur
-
-case $getAur in
-  "1") source "${scrDir}/install_aur.sh" yay;;
-  "2") source "${scrDir}/install_aur.sh" paru;;
-  *) source "${scrDir}/install_aur.sh" yay;;
-esac
-
-
 echo "Installing these packages:"
 
 while IFS= read -r pkg; do
@@ -45,7 +33,7 @@ done < "${scrDir}/packages.txt"
 
 
 sudo pacman -S "${pacmanList[@]}"
-${aurhlpr} -S "${aurList[@]}"
+yay -S "${aurList[@]}"
 
 # Copying config files to $HOME/.config
 echo "Copying configuration files into '~/.config'..."
@@ -94,8 +82,13 @@ done
 chsh -s /bin/fish
 
 # sddm
-echo "Basic installation is complete"
-echo "Starting sddm..."
-systemctl enable sddm.service
-sleep 5
-systemctl start sddm
+sddmStatus=$(systemctl status sddm | grep "Active: active")
+
+if [[ -z $sddmStatus ]]; then
+  echo "Basic installation is complete"
+  echo "Starting sddm..."
+  systemctl enable sddm.service
+  sleep 5
+  systemctl start sddm
+fi
+sh ~/.config/hypr/scripts/switchTheme.sh Dracula 
