@@ -6,12 +6,18 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "READ THE MESSAGE ABOVE!"
+echo "Hey you, yes you!"
 echo "This installation script is designed for minimal arch install"
 echo "If your ~/.config/ directory is not empty this script will create a backup of your ~/.config/ directory."
 echo "Path to backup config is ~/.config.bak"
 sleep 15
 
+# Install yay (AUR helper)
+echo "Installing AUR helper..."
+pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
 
 # Install packages
 pacmanList=()
