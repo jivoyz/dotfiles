@@ -14,13 +14,18 @@ sleep 15
 
 # Install yay (AUR helper)
 echo "Installing AUR helper..."
-git clone https://aur.archlinux.org/yay.git
-cd yay
+git clone https://aur.archlinux.org/yay.git $HOME/yay
+cd $HOME/yay
 makepkg -si
+cd $HOME
 
 # Install packages
 pacmanList=()
 aurList=()
+
+# install rustup to prevent some errors in future
+sudo pacman -S rustup
+rustup default stable
 
 echo "Installing these packages:"
 
