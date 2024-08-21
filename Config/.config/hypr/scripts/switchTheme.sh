@@ -55,6 +55,9 @@ notify-send -e -a "Theme Switch" "Wallpaper has been set"
 gsettings set org.gnome.desktop.interface gtk-theme $GTK_THEME
 gsettings set org.gnome.desktop.interface icon-theme $ICON_THEME
 
+rm -rf "${confDir}/gtk-4.0"
+ln -s "$HOME/.themes/${GTK_THEME}/gtk-4.0" "${confDir}/gtk-4.0"
+
 # rofi
 killall rofi
 ln -fs "${confDir}/hypr/themes/$1/rofi.theme" $HOME/.config/rofi/theme.rasi

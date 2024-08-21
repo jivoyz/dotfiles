@@ -17,7 +17,7 @@
 
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": ["custom/updates", "pulseaudio"],
+    "modules": ["custom/updates", "pulseaudio", "pulseaudio#microphone"],
   },
 
   "custom/spotify": {
@@ -90,7 +90,7 @@
     "format": "{icon} {volume}",
     "format-bluetooth": "{volume} {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": "    Muted",
+    "format-muted": "   Muted",
     "format-source": " {volume}",
     "format-source-muted": " ",
     "format-icons": {
@@ -102,7 +102,23 @@
       "car": "",
       "default": ["", "  ", "   "],
     },
+    "on-click": "pavucontrol"
   },
+
+
+  "pulseaudio#microphone": {
+    "format": "{format_source} {source_volume}",
+    "rotate": 0,
+    "format-source": " ",
+    "format-source-muted": "   ",
+    "on-click": "pavucontrol -t 4",
+    //"on-click-middle": "pamixer --sou",
+    "on-scroll-up": "~/.config/hypr/scripts/changeVolume.sh up microphone",
+    "on-scroll-down": "~/.config/hypr/scripts/changeVolume.sh down microphone",
+    "on-click-right": "~/.config/hypr/scripts/changeVolume.sh mute microphone",
+    "tooltip-format": "{format_source} {source_desc} // {source_volume}%",
+    "scroll-step": 5
+},
 
   "custom/power": {
     "format": "",
