@@ -1,3 +1,4 @@
-@define-color bar-bg #282a36;
+@define-color bg #282a36;
+@define-color alt-bg #44475A;
 @define-color fg #f8f8f2;
 @define-color workspace-active #bd93f9;

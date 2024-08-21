@@ -6,15 +6,15 @@
 }
 
 window#waybar {
-  background-color: @bar-bg;
+  background-color: @bg;
   border-radius: 0px;
 }
 
 #workspaces button {
   transition: 0.3s all;
-  border-radius: 0px;
-  padding: 0 4px;
-  /*margin: 1px 2px;*/
+  border-radius: 16px;
+  padding: 0px 2px;
+  margin: 0px 2px;
   color: @fg;
   background-color: transparent;
 }
@@ -25,6 +25,7 @@ window#waybar {
 
 #workspaces button.active {
   background-color: @workspace-active;
+  padding: 0 14px;
 }
 
 #hardware,
@@ -34,7 +35,10 @@ window#waybar {
 #window,
 #tray,
 #custom-spotify {
-  margin: 0px 4px;
+  margin: 4px 2px;
+  padding: 0px 8px;
+  border-radius: 16px;
+  background-color: @alt-bg;
 }
 
 #cpu,
