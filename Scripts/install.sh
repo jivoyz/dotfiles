@@ -12,6 +12,31 @@ echo "If your ~/.config/ directory is not empty this script will create a backup
 echo "Path to backup config is ~/.config.bak"
 sleep 5
 
+if [ -n "$( cat /etc/pacman.conf | grep -x "\[chaotic-aur\]" )"]; then
+  echo "Chaotic AUR is detected"
+
+else
+  read -p "Do you want to install Chaotic Aur for faster package installing? [Y/n]: " chaoticAur
+
+  if chaoticAur == 'y'; then
+    installChaoticAur
+
+  elif chaoticAur == 'Y'; then
+    installChaoticAur
+  fi
+fi
+
+read -p "Do you want to confirm every action during installation? [y/N]: " isConfirm
+pkgOpts=()
+if isConfirm == 'y'; then
+  pkgOpts+=("--noconfirm")
+
+elif isConfirm == 'Y'; then
+  pkgOpts+=("--noconfirm")
+fi
+
+# read 
+
 # Install yay (AUR helper)
 if pkg_installed yay; then
   echo "Yay is already installed. Skipping AUR installation"
@@ -30,7 +55,9 @@ pacmanList=()
 aurList=()
 
 # install rustup to prevent some errors in future
-sudo pacman -S rustup
+if !pkg_installed rustup; then
+  sudo pacman ${pkgOpts} -S rustup
+fi
 rustup default stable
 
 echo "Installing these packages:"
@@ -48,8 +75,8 @@ while IFS= read -r pkg; do
 done < "${scrDir}/packages.txt"
 
 
-sudo pacman -S "${pacmanList[@]}"
-yay -S "${aurList[@]}"
+sudo pacman -S ${pkgOpts} "${pacmanList[@]}"
+yay -S ${pkgOpts} "${aurList[@]}"
 
 # Copying config files to $HOME/.config
 echo "Copying configuration files into '~/.config'..."
@@ -72,12 +99,12 @@ for gtkTheme in ${gtkThemesDir}/*; do
   if [[ -e ${gtkTheme} && -d $HOME/.themes ]]; then
     echo "Extracting ${gtkTheme}"
     cd $HOME/.themes
-    tar -xf ${gtkTheme} > /dev/null
+    tar -xf ${gtkTheme} > /dev/null 2>&1
   else
     mkdir ~/.themes
     echo "Extracting ${gtkTheme}"
     cd $HOME/.themes
-    tar -xf ${gtkTheme} > /dev/null
+    tar -xf ${gtkTheme} > /dev/null 2>&1
   fi
 done
 
@@ -85,26 +112,27 @@ for iconTheme in ${iconsDir}/*; do
   if [[ -e ${iconTheme} && -d $HOME/.icons ]]; then
     echo "Extracting ${iconTheme}"
     cd $HOME/.icons
-    tar -xf ${iconTheme} > /dev/null
+    tar -xf ${iconTheme} > /dev/null 2>&1
   else
     mkdir ~/.icons
     echo "Extracting ${iconTheme}"
     cd $HOME/.icons
-    tar -xf ${iconTheme} > /dev/null
+    tar -xf ${iconTheme} > /dev/null 2>&1
   fi
 done
 
 # Changing the default shell for user
 chsh -s /bin/fish
 
+echo "Installation completed. Have a great day :)"
+
 # sddm
 sddmStatus=$(systemctl status sddm | grep "Active: active")
 
-if [[ -z $sddmStatus ]]; then
-  echo "Basic installation is complete"
+# read -p "Start sddm? [Y/n]: " isStartSddm
+
+if [ -z $sddmStatus ]; then
   echo "Starting sddm..."
   systemctl enable sddm.service
-  sleep 5
   systemctl start sddm
 fi
-sh ~/.config/hypr/scripts/switchTheme.sh Dracula 
