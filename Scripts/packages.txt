@@ -6,6 +6,7 @@ waybar
 waybar-module-pacman-updates-git
 kitty
 wl-clipboard
+pavucontrol
 cliphist
 swww
 rofi-lbonn-wayland-only-git

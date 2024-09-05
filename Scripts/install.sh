@@ -10,14 +10,20 @@ echo "Hey you, yes you!"
 echo "This installation script is designed for minimal arch install"
 echo "If your ~/.config/ directory is not empty this script will create a backup of your ~/.config/ directory."
 echo "Path to backup config is ~/.config.bak"
-sleep 15
+sleep 5
 
 # Install yay (AUR helper)
-echo "Installing AUR helper..."
-git clone https://aur.archlinux.org/yay.git $HOME/yay
-cd $HOME/yay
-makepkg -si
-cd $HOME
+if pkg_installed yay; then
+  echo "Yay is already installed. Skipping AUR installation"
+elif pkg_installed yay-bin; then
+  echo "Yay is already installed. Skipping AUR installation"
+else
+  echo "Installing Yay..."
+  git clone https://aur.archlinux.org/yay.git $HOME/yay
+  cd $HOME/yay
+  makepkg -si
+  cd $HOME
+fi
 
 # Install packages
 pacmanList=()
@@ -32,12 +38,12 @@ echo "Installing these packages:"
 while IFS= read -r pkg; do
   if pkg_available $pkg; then
     pacmanList+=("$pkg")
-    echo "[Arch] $pkg"
+    echo -e "\n\033[0;32m[Arch]\033[0m $pkg"
   elif aur_available $pkg; then
     aurList+=("$pkg")
-    echo "[AUR]  $pkg"
+    echo -e "\n\033[0;32m[AUR]\033[0m $pkg"
   else
-    echo "Package '$pkg' not found"
+    echo -e "\n\033[0;32m[Arch]\033[0m Package '$pkg' not found"
   fi
 done < "${scrDir}/packages.txt"
 
@@ -66,12 +72,12 @@ for gtkTheme in ${gtkThemesDir}/*; do
   if [[ -e ${gtkTheme} && -d $HOME/.themes ]]; then
     echo "Extracting ${gtkTheme}"
     cd $HOME/.themes
-    tar -xf ${gtkTheme}
+    tar -xf ${gtkTheme} > /dev/null
   else
     mkdir ~/.themes
     echo "Extracting ${gtkTheme}"
     cd $HOME/.themes
-    tar -xf ${gtkTheme}
+    tar -xf ${gtkTheme} > /dev/null
   fi
 done
 
@@ -79,12 +85,12 @@ for iconTheme in ${iconsDir}/*; do
   if [[ -e ${iconTheme} && -d $HOME/.icons ]]; then
     echo "Extracting ${iconTheme}"
     cd $HOME/.icons
-    tar -xf ${iconTheme}
+    tar -xf ${iconTheme} > /dev/null
   else
     mkdir ~/.icons
     echo "Extracting ${iconTheme}"
     cd $HOME/.icons
-    tar -xf ${iconTheme}
+    tar -xf ${iconTheme} > /dev/null
   fi
 done
 
