@@ -6,7 +6,8 @@ if status is-interactive
 
     alias vadim='$HOME/.config/hypr/scripts/vadim.sh'
     alias ls="exa --icons"
-    alias lla="exa --icons -a"
+    alias la="exa --icons -a"
+    alias lla="exa --icons -l -a"
     alias lst="exa -l -g -T --icons -L=2"
     alias ll="exa -l -g --icons"
 

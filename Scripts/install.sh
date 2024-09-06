@@ -95,7 +95,7 @@ setSymlinks() {
 }
 
 ln -sf "${cloneDir}/Config/.tmux.conf" $HOME/.tmux.conf
-ln -sf "${cloneDir}/Config/.tmux" $HOME/.tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Copying config files to $HOME/.config
 echo "Copying configuration files into "~/.config"..."
