@@ -23,7 +23,8 @@ wlogout
 yazi
 sddm
 
-firefox
+zen-browser-bin
+brave-bin
 firefox-pwa-bin
 ark
 eog
@@ -36,7 +37,6 @@ emote
 git
 jq
 fzf
-zellij
 tmux
 eza
 pamixer

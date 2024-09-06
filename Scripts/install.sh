@@ -12,30 +12,30 @@ echo "If your ~/.config/ directory is not empty this script will create a backup
 echo "Path to backup config is ~/.config.bak"
 sleep 5
 
-if [ -n "$( cat /etc/pacman.conf | grep -x "\[chaotic-aur\]" )"]; then
+if grep -q "\[chaotic-aur\]" /etc/pacman.conf; then
   echo "Chaotic AUR is detected"
-
 else
   read -p "Do you want to install Chaotic Aur for faster package installing? [Y/n]: " chaoticAur
 
-  if chaoticAur == 'y'; then
+  if [[ $chaoticAur =~ "y" ]]; then
     installChaoticAur
 
-  elif chaoticAur == 'Y'; then
+  elif [[ $chaoticAur =~ "Y" ]]; then
+    installChaoticAur
+  elif [[ -z $chaoticAur ]]; then
     installChaoticAur
   fi
 fi
 
 read -p "Do you want to confirm every action during installation? [y/N]: " isConfirm
 pkgOpts=()
-if isConfirm == 'y'; then
-  pkgOpts+=("--noconfirm")
-
-elif isConfirm == 'Y'; then
-  pkgOpts+=("--noconfirm")
+if [[ $isConfirm =~ "n" ]]; then
+  pkgOpts+=(--noconfirm)
+elif [[ $isConfirm =~ "N" ]]; then
+  pkgOpts+=(--noconfirm)
+elif [[ -z $isConfirm ]]; then
+  pkgOpts+=(--noconfirm)
 fi
-
-# read 
 
 # Install yay (AUR helper)
 if pkg_installed yay; then
@@ -55,39 +55,54 @@ pacmanList=()
 aurList=()
 
 # install rustup to prevent some errors in future
-if !pkg_installed rustup; then
-  sudo pacman ${pkgOpts} -S rustup
+if pkg_installed rustup; then
+  rustup default stable
+else
+  sudo pacman ${pkgOpts[@]} -S rustup
+  rustup default stable
 fi
-rustup default stable
 
 echo "Installing these packages:"
 
 while IFS= read -r pkg; do
-  if pkg_available $pkg; then
+  if pkg_installed $pkg; then
+    echo -e "\n\033[0;32m[Arch]\033[0m $pkg is already installed"
+  elif pkg_available $pkg; then
     pacmanList+=("$pkg")
     echo -e "\n\033[0;32m[Arch]\033[0m $pkg"
   elif aur_available $pkg; then
     aurList+=("$pkg")
     echo -e "\n\033[0;32m[AUR]\033[0m $pkg"
   else
-    echo -e "\n\033[0;32m[Arch]\033[0m Package '$pkg' not found"
+    echo -e "\n\033[0;32m[Arch]\033[0m Package "$pkg" not found"
   fi
 done < "${scrDir}/packages.txt"
 
+if [ ${#pacmanList[@]} -gt 0 ]; then
+  sudo pacman -S ${pkgOpts[@]} "${pacmanList[@]}"
+fi
 
-sudo pacman -S ${pkgOpts} "${pacmanList[@]}"
-yay -S ${pkgOpts} "${aurList[@]}"
+if [ ${#aurList[@]} -gt 0 ]; then
+  yay -S ${pkgOpts[@]} "${aurList[@]}"
+fi
+
+setSymlinks() {
+  for item in ${cloneDir}/Config/.config/*; do
+    item_name=$(basename "$item")
+
+    ln -s "$item" "$HOME/.config/$item_name"
+  done
+}
 
 # Copying config files to $HOME/.config
-echo "Copying configuration files into '~/.config'..."
-cp -r "${cloneDir}"/Config/.local $HOME
+echo "Copying configuration files into "~/.config"..."
+cp -r "${cloneDir}"/Config/.local/. $HOME/.local
 if [ -d $HOME/.config ]; then
-  mv ~/.config ~/.config.bak
-  cp -r "${cloneDir}"/Config/.config/ $HOME
+  cp $HOME/.config $HOME/.config.bak
+  setSymlinks
 else
-  echo "Config directory does not exist"
-  mkdir ~/.config/
-  cp -r "${cloneDir}"/Config/.config/ $HOME
+  mkdir ~/.config
+  setSymlinks
 fi
 
 # Installing themes
@@ -125,14 +140,3 @@ done
 chsh -s /bin/fish
 
 echo "Installation completed. Have a great day :)"
-
-# sddm
-sddmStatus=$(systemctl status sddm | grep "Active: active")
-
-# read -p "Start sddm? [Y/n]: " isStartSddm
-
-if [ -z $sddmStatus ]; then
-  echo "Starting sddm..."
-  systemctl enable sddm.service
-  systemctl start sddm
-fi
