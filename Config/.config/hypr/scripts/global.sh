@@ -2,4 +2,3 @@
 
 export confDir=~/.config
 export cacheDir=~/.cache
-
