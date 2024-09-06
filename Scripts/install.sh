@@ -90,13 +90,17 @@ setSymlinks() {
   for item in ${cloneDir}/Config/.config/*; do
     item_name=$(basename "$item")
 
-    ln -s "$item" "$HOME/.config/$item_name"
+    ln -sf "$item" "$HOME/.config/$item_name"
   done
 }
+
+ln -sf "${cloneDir}/Config/.tmux.conf" $HOME/.tmux.conf
+ln -sf "${cloneDir}/Config/.tmux" $HOME/.tmux
 
 # Copying config files to $HOME/.config
 echo "Copying configuration files into "~/.config"..."
 cp -r "${cloneDir}"/Config/.local/. $HOME/.local
+
 if [ -d $HOME/.config ]; then
   cp $HOME/.config $HOME/.config.bak
   setSymlinks
