@@ -95,6 +95,11 @@ setSymlinks() {
 }
 
 ln -sf "${cloneDir}/Config/.tmux.conf" $HOME/.tmux.conf
+
+if [[ -d $HOME/.tmux ]]; then
+  rm -rf $HOME/.tmux
+fi
+
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Copying config files to $HOME/.config
@@ -102,10 +107,10 @@ echo "Copying configuration files into "~/.config"..."
 cp -r "${cloneDir}"/Config/.local/. $HOME/.local
 
 if [ -d $HOME/.config ]; then
-  cp $HOME/.config $HOME/.config.bak
+  cp -r $HOME/.config/ $HOME/.config.bak
   setSymlinks
 else
-  mkdir ~/.config
+  mkdir $HOME/.config
   setSymlinks
 fi
 

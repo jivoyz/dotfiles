@@ -6,7 +6,7 @@
   "spacing": 4, // Gaps between modules (4px)
   "reload_style_on_change": true,
   // Choose the order of the modules
-  "modules-left": ["hyprland/workspaces", "tray", ],
+  "modules-left": ["hyprland/workspaces", "tray", "group/cpu_ram"],
   "modules-center": ["custom/spotify"],
   "modules-right": ["group/hardware", "group/info"],
 
@@ -18,6 +18,11 @@
   "group/hardware": {
     "orientation": "horizontal",
     "modules": ["custom/updates", "pulseaudio", "pulseaudio#microphone"],
+  },
+
+  "group/cpu_ram": {
+    "orientation": "horizontal",
+    "modules": ["cpu", "memory"],
   },
 
   "custom/spotify": {
@@ -60,11 +65,11 @@
     "format": "{:%a %d %b   %H:%M}",
   },
   "cpu": {
-    "format": "  {usage}%",
+    "format": "   {usage}%",
     "tooltip": false,
   },
   "memory": {
-    "format": "   {}%",
+    "format": "   {}%",
   },
   "backlight": {
     // "device": "acpi_video1",

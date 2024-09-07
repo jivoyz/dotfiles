@@ -12,9 +12,9 @@ window#waybar {
 
 #workspaces button {
   transition: 0.3s all;
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 0px 2px;
-  margin: 0px 2px;
+  margin: 2px 2px;
   color: @fg;
   background-color: transparent;
 }
@@ -34,11 +34,13 @@ window#waybar {
 #workspaces,
 #window,
 #tray,
+#cpu_ram,
 #custom-spotify {
-  margin: 4px 2px;
+  margin: 3px 2px 0px 2px;
   padding: 0px 8px;
-  border-radius: 16px;
+  border-radius: 8px;
   background-color: @alt-bg;
+  /*border: 2px solid @fg;*/
 }
 
 #cpu,
