@@ -3,7 +3,7 @@ $inactive_border = rgba(565f89cc) rgba(9aa5cecc)
 
 general {
     gaps_in = 2
-    gaps_out = 2
+    gaps_out = 6
     border_size = 2
     col.active_border = $active_border 45deg
     col.inactive_border = $inactive_border 45deg
@@ -19,7 +19,7 @@ group {
 }
 
 decoration {
-    rounding = 0
+    rounding = 8
     drop_shadow = false
 
     blur {
