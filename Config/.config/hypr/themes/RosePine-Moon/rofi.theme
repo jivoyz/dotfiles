@@ -1,0 +1,12 @@
+* {
+  base: #232136;
+  bg: #232136;
+  text: #e0def4;
+  prompt-text: @text;
+  border: #eb6f92;
+  bg-selected: #44415a;
+  text-selected: @text;
+  btn-bg: #2a273f;
+  btn-bg-selected: #44415a;
+  btn-text: @text;
+}

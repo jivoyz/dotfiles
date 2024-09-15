@@ -8,17 +8,16 @@ imageToSet=$1
 rofiCmd="rofi -dmenu -p "Wallpaper""
 
 THEME=$(cat "${confDir}/hypr/theme.json" | jq -r '.themeName')
-COLOR_MODE=$(cat "${confDir}/hypr/theme.json" | jq -r '.colorMode')
 wallpaper_folder="${confDir}/hypr/themes/$THEME/wallpapers"
 
 # If path to image is not specified in parameters then let user to choose wallpaper
-if [[ -z $imageToSet ]]; then
-  choice="$(ls $wallpaper_folder | ${rofiCmd})"
+if [[ -z "${imageToSet}" ]]; then
+  choice="$(ls "${wallpaper_folder}" | ${rofiCmd})"
 fi
 
 setWallpaper() {
   # $1 - path to wallpaper
-	swww img --transition-duration 2 --transition-fps 73 --transition-type any "$1"
+  swww img --transition-duration 2 --transition-fps 73 --transition-type any "$1"
 }
 
 cacheWallpaper() {
@@ -39,23 +38,23 @@ cacheWallpaper() {
 
 # If path to image is specified in parameters then set wallpaper
 if [[ -n ${imageToSet} ]]; then
-  setWallpaper $imageToSet
-  cacheWallpaper $imageToSet
-  notify-send -i ${imageToSet} -e -a "Wallpapers" "Wallpapers has been set"
+  setWallpaper "${imageToSet}"
+  cacheWallpaper "${imageToSet}"
+  notify-send -i "${imageToSet}" -e -a "Wallpapers" "Wallpapers has been set"
   exit 1
 fi
 
 if [[ -d $wallpaper_folder/$choice ]]; then
-	wallpaper_temp="$choice"
-elif [[ -f $wallpaper_folder/$choice ]]; then
+  wallpaper_temp="${choice}"
+elif [[ -f "$wallpaper_folder"/"${choice}" ]]; then
   wallPath="${wallpaper_folder}/${wallpaper_temp}/${choice}"
   # Update $THEME.json
-  jq --arg wallpaper $choice '.wallpaper = $wallpaper' ${confDir}/hypr/themes/$THEME/$THEME.json > "${cacheDir}/tmp.json" && mv ${cacheDir}/tmp.json ${confDir}/hypr/themes/$THEME/$THEME.json
+  jq --arg wallpaper $choice '.wallpaper = $wallpaper' ${confDir}/hypr/themes/$THEME/$THEME.json >"${cacheDir}/tmp.json" && mv ${cacheDir}/tmp.json ${confDir}/hypr/themes/$THEME/$THEME.json
 
   echo ${wallPath}
-  setWallpaper $wallPath
-  cacheWallpaper $wallPath
-  notify-send -i ${wallPath} -e -a "Wallpapers" "Wallpapers has been set"
+  setWallpaper "${wallPath}"
+  cacheWallpaper "${wallPath}"
+  notify-send -i "${wallPath}" -e -a "Wallpapers" "Wallpapers has been set"
 else
-	exit 1
+  exit 1
 fi
