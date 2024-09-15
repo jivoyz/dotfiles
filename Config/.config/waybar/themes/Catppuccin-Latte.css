@@ -1,4 +1,5 @@
-@define-color bg #eff1f5;
+/*@define-color bg #eff1f5;*/
+@define-color bg transparent;
 @define-color alt-bg #ccd0da;
 @define-color fg #4c4f69;
 @define-color workspace-active #04a5e5;
