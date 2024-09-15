@@ -333,7 +333,7 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#393552"
+    background = "#26233a"
     foreground = "#e0def4"
     frame_color = "#eb6f92"
     timeout = 10
@@ -341,7 +341,7 @@
     default_icon = ~/.local/assets/bell.svg
 
 [urgency_normal]
-    background = "#393552"
+    background = "#26233a"
     foreground = "#e0def4"
     frame_color = "#eb6f92"
     timeout = 10
@@ -350,7 +350,7 @@
     default_icon = ~/.local/assets/bell.svg
 
 [urgency_critical]
-    background = "#393552"
+    background = "#26233a"
     foreground = "#eb6f92"
     foreground = "#eb6f92"
     timeout = 0
