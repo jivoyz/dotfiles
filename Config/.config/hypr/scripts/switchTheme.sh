@@ -21,8 +21,9 @@ ln -fs "${confDir}/hypr/themes/$1/$1.json" "${confDir}/hypr/theme.json"
 # hyprland
 ln -fs "${confDir}/hypr/themes/$1/hyprland.theme" "${confDir}/hypr/theme.conf"
 
-# swaync
-swaync-client -rs
+# dunst
+killall dunst
+cp ${confDir}/hypr/themes/$1/dunstrc ${confDir}/dunst/dunstrc
 
 # kitty terminal
 ln -fs "${confDir}/hypr/themes/$1/kitty.theme" $HOME/.config/kitty/theme.conf

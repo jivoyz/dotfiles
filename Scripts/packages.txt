@@ -1,5 +1,8 @@
 hyprland-git
 xdg-desktop-portal-hyprland
+less
+man-db
+unzip
 hyprlock
 waybar
 waybar-module-pacman-updates-git
@@ -12,7 +15,7 @@ rofi-lbonn-wayland-only-git
 nemo
 btop
 cava
-swaync
+dunst
 gammastep-wayland-git
 fish
 fastfetch

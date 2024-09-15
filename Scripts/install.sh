@@ -44,6 +44,9 @@ elif pkg_installed yay-bin; then
   echo "Yay is already installed. Skipping AUR installation"
 else
   echo "Installing Yay..."
+  if [[ -d $HOME/yay ]]; then
+    rm -rf $HOME/yay
+  fi
   git clone https://aur.archlinux.org/yay.git $HOME/yay
   cd $HOME/yay
   makepkg -si
@@ -99,6 +102,11 @@ ln -sf "${cloneDir}/Config/.tmux.conf" $HOME/.tmux.conf
 if [[ -d $HOME/.tmux ]]; then
   rm -rf $HOME/.tmux
 fi
+
+if [[ -d $HOME/.local/assets ]]; then
+  mv $HOME/.local/assets $HOME/.local/assets.bak
+fi
+ln -sf ${cloneDir}/Config/.local/assets $HOME/.local/assets
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
