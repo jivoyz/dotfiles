@@ -17,7 +17,7 @@ fi
 
 setWallpaper() {
   # $1 - path to wallpaper
-  swww img --transition-duration 2 --transition-fps 73 --transition-type any "$1"
+  swww img --transition-duration 2 --transition-fps 73 --transition-type any "${1}"
 }
 
 cacheWallpaper() {
@@ -37,7 +37,7 @@ cacheWallpaper() {
 }
 
 # If path to image is specified in parameters then set wallpaper
-if [[ -n ${imageToSet} ]]; then
+if [[ -n "${imageToSet}" ]]; then
   setWallpaper "${imageToSet}"
   cacheWallpaper "${imageToSet}"
   notify-send -i "${imageToSet}" -e -a "Wallpapers" "Wallpapers has been set"
@@ -49,9 +49,9 @@ if [[ -d $wallpaper_folder/$choice ]]; then
 elif [[ -f "$wallpaper_folder"/"${choice}" ]]; then
   wallPath="${wallpaper_folder}/${wallpaper_temp}/${choice}"
   # Update $THEME.json
-  jq --arg wallpaper $choice '.wallpaper = $wallpaper' ${confDir}/hypr/themes/$THEME/$THEME.json >"${cacheDir}/tmp.json" && mv ${cacheDir}/tmp.json ${confDir}/hypr/themes/$THEME/$THEME.json
+  jq --arg wallpaper "$choice" '.wallpaper = $wallpaper' "${confDir}/hypr/themes/$THEME/$THEME.json" > "${cacheDir}/tmp.json" && mv "${cacheDir}/tmp.json" "${confDir}/hypr/themes/$THEME/$THEME.json"
 
-  echo ${wallPath}
+  echo "${wallPath}"
   setWallpaper "${wallPath}"
   cacheWallpaper "${wallPath}"
   notify-send -i "${wallPath}" -e -a "Wallpapers" "Wallpapers has been set"

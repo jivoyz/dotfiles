@@ -20,6 +20,9 @@ ln -fs "${confDir}/hypr/themes/"${1}"/"${1}".json" "${confDir}/hypr/theme.json"
 # hyprland
 ln -fs "${confDir}/hypr/themes/"${1}"/hyprland.theme" "${confDir}/hypr/theme.conf"
 
+# fzf
+cp "${confDir}/hypr/themes/${1}/fzf.fish" "${confDir}/fish/fzf.fish"
+
 # dunst
 killall dunst
 cp ${confDir}/hypr/themes/"${1}"/dunstrc ${confDir}/dunst/dunstrc
@@ -43,7 +46,7 @@ killall rofi
 ln -fs "${confDir}/hypr/themes/"${1}"/rofi.theme" $HOME/.config/rofi/theme.rasi
 
 # wallpapers
-wallPath="${confDir}/hypr/themes/"${1}"/wallpapers/$WALLPAPER"
+wallPath="${confDir}/hypr/themes/${1}/wallpapers/${WALLPAPER}"
 echo "${wallPath}"
 sh ${confDir}/hypr/scripts/swwallchange.sh "${wallPath}"
 notify-send -e -a "Theme Switch" "Wallpaper has been set"
