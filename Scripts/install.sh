@@ -103,12 +103,17 @@ if [[ -d $HOME/.tmux ]]; then
   rm -rf $HOME/.tmux
 fi
 
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+if [[ -a $HOME/.gitconfig ]]; then
+  cp $HOME/.gitconfig $HOME/.gitconfig.bak
+fi
+ln -sf "${cloneDir}/Config/.gitconfig" $HOME/.gitconfig
+
 if [[ -d $HOME/.local/assets ]]; then
   mv $HOME/.local/assets $HOME/.local/assets.bak
 fi
 ln -sf ${cloneDir}/Config/.local/assets $HOME/.local/assets
-
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Copying config files to $HOME/.config
 echo "Copying configuration files into "~/.config"..."

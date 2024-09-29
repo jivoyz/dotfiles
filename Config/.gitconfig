@@ -1,0 +1,9 @@
+[user]
+	name = jIVOYz
+	email = ilaprohorov51@gmail.com
+
+[init]
+  defaultBranch = main
+
+[core]
+  editor = nvim
