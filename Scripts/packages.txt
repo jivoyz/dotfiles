@@ -7,6 +7,7 @@ hyprlock
 waybar
 waybar-module-pacman-updates-git
 kitty
+zoxide
 wl-clipboard
 pavucontrol
 cliphist
@@ -16,7 +17,7 @@ nemo
 btop
 cava
 dunst
-gammastep-wayland-git
+hyprshade
 fish
 fastfetch
 neovim
@@ -27,6 +28,7 @@ yazi
 sddm
 
 zen-browser-bin
+firefox
 brave-bin
 firefox-pwa-bin
 ark
