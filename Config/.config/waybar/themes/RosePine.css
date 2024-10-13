@@ -1,6 +1,7 @@
-/*@define-color bg #2a273f;*/
-@define-color bg transparent;
-@define-color alt-bg #1f1d2e;
+@define-color bg #2a273f;
+/* @define-color bg transparent; */
+/* @define-color alt-bg #1f1d2e; */
+@define-color alt-bg transparent;
 @define-color fg #eb6f92;
 @define-color workspace-active #403d52;
 

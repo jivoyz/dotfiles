@@ -1,4 +1,4 @@
-@import url("./themes/RosePine.css");
+@import url("./themes/Gruvbox.css");
 
 * {
   font-size: 15px;
@@ -6,15 +6,15 @@
 }
 
 window#waybar {
-  background-color: @bg;
+  background-color: alpha(@bg, 1);
   border-radius: 0px;
 }
 
 #workspaces button {
   transition: 0.3s all;
-  border-radius: 8px;
-  padding: 0px 2px;
-  margin: 2px 2px;
+  border-radius: 0px;
+  padding: 0px 8px;
+  margin: 0;
   color: @fg;
   background-color: transparent;
 }
@@ -25,7 +25,7 @@ window#waybar {
 
 #workspaces button.active {
   background-color: @workspace-active;
-  padding: 0 14px;
+  /* padding: 0 14px; */
 }
 
 #hardware,
@@ -36,11 +36,12 @@ window#waybar {
 #tray,
 #cpu_ram,
 #custom-spotify {
-  margin: 3px 2px 0px 2px;
+  /* margin: 3px 2px 0px 2px; */
   padding: 0px 8px;
-  border-radius: 8px;
+  border-radius: 0px;
   background-color: @alt-bg;
-  /*border: 2px solid @fg;*/
+  /* border: 2px solid @fg; */
+  /* border-bottom: 2px solid @fg; */
 }
 
 #cpu,

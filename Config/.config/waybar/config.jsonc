@@ -62,7 +62,7 @@
   },
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%a %d %b   %H:%M}",
+    "format": "   {:%a %d %b   %H:%M}",
   },
   "cpu": {
     "format": "   {usage}%",
@@ -87,7 +87,10 @@
   },
 
   "hyprland/language": {
-    "format": "{short}",
+    "format": "   {}",
+    "format-en": "US",
+    "format-ru": "RU",
+    "format-uk": "UA",
   },
 
   "pulseaudio": {

@@ -1,0 +1,40 @@
+# DESIGN TWEAKS
+# don't do anything when a 'bell' rings
+set -g visual-activity off
+set -g visual-bell off
+set -g visual-silence off
+setw -g monitor-activity off
+set -g bell-action none
+
+# clock mode
+setw -g clock-mode-colour #f6c177
+
+# copy mode
+setw -g mode-style 'fg=#e0def4 bg=#7c6f64 bold'
+
+# panes
+set -g pane-border-style 'fg=#6e6a87'
+set -g pane-active-border-style 'fg=#f6c177'
+
+# statusbar
+set -g status-position top
+set -g status-justify left
+set -g status-style 'fg=#e0def4'
+
+set -g status-left ''
+set -g status-left-length 10
+
+set -g status-right-style 'fg=#e0def4 bg=#1f1d2e'
+set -g status-right '#[fg=#ebbcba] #(git -C #{pane_current_path} rev-parse --abbrev-ref HEAD) #[fg=#f6c177]  %Y-%m-%d %H:%M '
+set -g status-right-length 50
+
+setw -g window-status-current-style 'fg=#e0def4 bg=#524f67'
+setw -g window-status-current-format ' #I #W #[fg=#f6c177]#F '
+
+setw -g window-status-style 'fg=#908caa bg=#1f1d2e'
+setw -g window-status-format ' #I #[fg=#908caa]#W #[fg=#ebbcba]#F '
+
+setw -g window-status-bell-style 'fg=#d8a657 bg=#ea6962 bold'
+
+# messages
+set -g message-style 'fg=#e0def4 bg=#1f1d2e bold'

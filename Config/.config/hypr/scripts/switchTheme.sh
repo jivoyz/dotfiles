@@ -23,6 +23,9 @@ ln -fs "${confDir}/hypr/themes/"${1}"/hyprland.theme" "${confDir}/hypr/theme.con
 # fzf
 cp "${confDir}/hypr/themes/${1}/fzf.fish" "${confDir}/fish/fzf.fish"
 
+# tmux
+ln -fs "${confDir}/hypr/themes/${1}/tmux.theme" "$HOME/.tmux-theme.conf"
+
 # dunst
 killall dunst
 cp ${confDir}/hypr/themes/"${1}"/dunstrc ${confDir}/dunst/dunstrc
@@ -37,6 +40,7 @@ kvantummanager --set $KVANTUM_THEME
 # GTK
 gsettings set org.gnome.desktop.interface gtk-theme "${GTK_THEME}"
 gsettings set org.gnome.desktop.interface icon-theme "${ICON_THEME}"
+gsettings set org.gnome.desktop.interface color-scheme prefer-${COLOR_MODE}
 
 rm -rf "${confDir}/gtk-4.0"
 ln -s "$HOME/.themes/${GTK_THEME}/gtk-4.0" "${confDir}/gtk-4.0"
