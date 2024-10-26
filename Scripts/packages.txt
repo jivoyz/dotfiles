@@ -19,6 +19,7 @@ cava
 dunst
 hyprshade
 fish
+fisher
 fastfetch
 neovim
 vim

@@ -1,5 +1,13 @@
 set -g fish_greeting
 
+# fzf.fish
+# CTRL + ALT + L - Git log
+# CTRL + ALT + G - Git status
+# CTRL + ALT + F - Search directory
+# CTRL + R - Search history
+# CTRL + ALT + P - Search processes
+# CTRL + V - Search variables (fish)
+
 if status is-interactive
     starship init fish | source
     zoxide init fish | source
