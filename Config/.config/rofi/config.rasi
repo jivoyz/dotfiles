@@ -22,12 +22,13 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-  width: 35%;
+  width: 30%;
   height: 560px;
   background-color: @bg;
   border-radius: 10px;
   border-color: @border;
   border: 2px;
+  location: center;
 }
 
 mainbox {
@@ -38,6 +39,7 @@ inputbar {
   children: [prompt,entry];
   background-color: @bg;
   border-radius: 5px;
+  border: 2px;
   padding: 2px;
 }
 
@@ -61,8 +63,10 @@ entry {
   text-color: @text;
   background-color: @bg;
   border-radius: 0 4px 4px 0;
-  border: 2px;
   placeholder: "Search...";
+  border-color: @border;
+  border-width: 2px;
+  border: 2px;
 }
 
 listview {

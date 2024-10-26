@@ -19,9 +19,8 @@ function send_notification_spotify() {
   spotify_volume=$(playerctl --player="spotify" volume | awk '{ printf "%.0f\n", $0 * 100 }')
   spotify_icon=$HOME/.local/assets/spotify.svg
 
-  msg="${track_data} 
-    Volume: ${spotify_volume}%
-    Album: ${track_album}"
+  msg=" ${track_data} 
+󰓃 Volume: ${spotify_volume}%"
 
   notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -a " Spotify" -u low -r 9944 -h int:value:${spotify_volume} -i $spotify_icon "${msg}" -t 1500
 }

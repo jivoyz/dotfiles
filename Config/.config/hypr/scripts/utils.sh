@@ -23,7 +23,9 @@ screenshot_screen() {
 scrDir=$(dirname "$(realpath "$0")")
 source ${scrDir}/global.sh
 
-choice=$(printf "Screenshot (Area)\nScreenshot (Fullscreen)\nColor Picker" | rofi -dmenu -theme-str "inputbar {enabled: false;}")
+rofiStyles="window {location: north; width: 20%;} inputbar {enabled: false;}"
+
+choice=$(printf "Screenshot (Area)\nScreenshot (Fullscreen)\nColor Picker" | rofi -dmenu -theme-str "${rofiStyles}")
 
 case "${choice}" in
   "Screenshot (Area)")

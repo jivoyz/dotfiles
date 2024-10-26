@@ -1,3 +1,6 @@
+exec-once = hyprctl setcursor Rose-Pine 24
+exec-once = gsettings set org.gnome.desktop.interface cursor-theme "Rose Pine"
+
 $active_border = rgba(1e66f5ff) rgba(1e66f5ff)
 $inactive_border = rgba(565f89cc) rgba(9aa5cecc)
 

@@ -46,6 +46,7 @@ tmux
 eza
 pamixer
 networkmanager
+network-manager-applet
 nodejs-lts-iron
 npm
 yarn

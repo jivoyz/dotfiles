@@ -1,4 +1,4 @@
-@import url("./themes/Gruvbox.css");
+@import url("./themes/Tokyo-Night.css");
 
 * {
   font-size: 15px;
@@ -12,9 +12,9 @@ window#waybar {
 
 #workspaces button {
   transition: 0.3s all;
-  border-radius: 0px;
+  border-radius: 16px;
   padding: 0px 8px;
-  margin: 0;
+  margin: 2px 0;
   color: @fg;
   background-color: transparent;
 }
@@ -25,7 +25,7 @@ window#waybar {
 
 #workspaces button.active {
   background-color: @workspace-active;
-  /* padding: 0 14px; */
+  padding: 0 14px;
 }
 
 #hardware,
@@ -36,9 +36,9 @@ window#waybar {
 #tray,
 #cpu_ram,
 #custom-spotify {
-  /* margin: 3px 2px 0px 2px; */
+  margin: 3px 2px 3px 2px;
   padding: 0px 8px;
-  border-radius: 0px;
+  border-radius: 16px;
   background-color: @alt-bg;
   /* border: 2px solid @fg; */
   /* border-bottom: 2px solid @fg; */

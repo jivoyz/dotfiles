@@ -70,6 +70,7 @@
   },
   "memory": {
     "format": "   {}%",
+    "format-alt": "   {used} GB",
   },
   "backlight": {
     // "device": "acpi_video1",

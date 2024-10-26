@@ -3,6 +3,7 @@ set -g fish_greeting
 if status is-interactive
     starship init fish | source
     zoxide init fish | source
+    source ~/.config/fish/fzf.fish
 
     # Set up fzf key bindings
     fzf --fish | source
@@ -27,12 +28,4 @@ if status is-interactive
     alias vim="nvim"
 
     set -gx EDITOR nvim
-    source ~/.config/fish/fzf.fish
-  # set -Ux FZF_DEFAULT_OPTS "\
-  # --color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39 \
-  # --color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
-  # --color=marker:#7287fd,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39 \
-  # --color=selected-bg:#bcc0cc \
-  # --multi"
-
 end
