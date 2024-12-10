@@ -27,7 +27,7 @@
     width = 400
 
     # The maximum height of a single notification, excluding the frame.
-    height = 300
+    height = (0, 300)
 
     # Position the notification in the top right corner
     origin = top-right
@@ -333,26 +333,26 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#1f2335"
-    foreground = "#c0caf5"
-    frame_color = "#7aa2f7"
+    background = "#1d2021"
+    foreground = "#d4be98"
+    frame_color = "#7daea3"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     default_icon = ~/.local/assets/bell.svg
 
 [urgency_normal]
-    background = "#1f2335"
-    foreground = "#c0caf5"
-    frame_color = "#7aa2f7"
+    background = "#1d2021"
+    foreground = "#d4be98"
+    frame_color = "#a9b665"
     timeout = 10
     override_pause_level = 30
     # Icon for notifications with normal urgency, uncomment to enable
     default_icon = ~/.local/assets/bell.svg
 
 [urgency_critical]
-    background = "#1f2335"
-    foreground = "#c53b53"
-    frame_color = "#c53b53"
+    background = "#3c1f1e"
+    foreground = "#ddc7a1"
+    frame_color = "#ea6962"
     timeout = 0
     override_pause_level = 60
     # Icon for notifications with critical urgency, uncomment to enable

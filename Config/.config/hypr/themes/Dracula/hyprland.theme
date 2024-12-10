@@ -1,12 +1,12 @@
-exec-once = hyprctl setcursor Rose-Pine 24
-exec-once = gsettings set org.gnome.desktop.interface cursor-theme "Rose Pine"
+exec = hyprctl setcursor Rose-Pine 24
+exec = gsettings set org.gnome.desktop.interface cursor-theme "Rose Pine"
 
 $active_border = rgba(bd93f9ff) rgba(bd93f9ff)
 $inactive_border = rgba(565f89cc) rgba(9aa5cecc)
 
 general {
-    gaps_in = 2
-    gaps_out = 6
+    gaps_in = 6
+    gaps_out = 12
     border_size = 2
     col.active_border = $active_border 45deg
     col.inactive_border = $inactive_border 45deg
@@ -22,8 +22,7 @@ group {
 }
 
 decoration {
-    rounding = 8
-    drop_shadow = false
+    rounding = 4
 
     blur {
         enabled = yes

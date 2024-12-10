@@ -5,7 +5,7 @@
 ## author: Folke Lemaitre
 ## upstream: https://github.com/folke/tokyonight.nvim/raw/main/extras/kitty/tokyonight_night.conf
 
-background_opacity 0.90
+background_opacity 1
 
 
 background #1a1b26

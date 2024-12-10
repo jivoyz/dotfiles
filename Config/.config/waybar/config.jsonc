@@ -17,7 +17,7 @@
 
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": ["custom/updates", "pulseaudio", "pulseaudio#microphone"],
+    "modules": ["custom/updates", "pulseaudio", "pulseaudio#microphone", "network"],
   },
 
   "group/cpu_ram": {
@@ -99,7 +99,7 @@
     "format": "{icon} {volume}",
     "format-bluetooth": "{volume} {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": "   Muted",
+    "format-muted": " ",
     "format-source": " {volume}",
     "format-source-muted": " ",
     "format-icons": {
@@ -111,7 +111,10 @@
       "car": "",
       "default": ["", "  ", "   "],
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+    "on-scroll-up": "~/.config/hypr/scripts/changeVolume.sh up",
+    "on-scroll-down": "~/.config/hypr/scripts/changeVolume.sh down",
+    "on-click-right": "~/.config/hypr/scripts/changeVolume.sh mute",
   },
 
 

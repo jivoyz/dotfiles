@@ -1,17 +1,19 @@
 !#/bin/bash
 
-styles="#window {location: northeast; width: 320px; height: 320px; padding: 0;} listview {lines: 1;} element {padding: 0 0;} inputbar {enabled: false;}"
+styles="#window {location: center; width: 50%; height: 240px; padding: 0;} listview {columns: 4; lines: 1; layout: horizontal;dynamic: true;} element { padding: 0 0;} inputbar {enabled: false;}"
 
-selected=$(printf "  Power off\n  Restart\n  Lock" | rofi -dmenu -mesg "Bye, $USER" -hover-select -me-select-entry '' -me-accept-entry MousePrimary -theme-str "$styles")
+options=("  Power off" " Restart" "  Lock")
+
+selected=$(printf "${options[0]}\n${options[1]}\n${options[2]}" | rofi -dmenu -mesg "Bye, $USER" -hover-select -me-select-entry '' -me-accept-entry MousePrimary -theme-str "$styles")
 
 case "$selected" in
-"  Power off")
+"${options[0]}")
 	shutdown -h now
 	;;
-"  Restart")
+"${options[1]}")
 	shutdown -r now
 	;;
-"  Lock")
+"${options[2]}")
 	hyprlock
 	;;
 *)

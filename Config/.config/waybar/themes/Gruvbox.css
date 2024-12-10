@@ -1,5 +1,5 @@
-@define-color bg alpha(#282828, 0.7);
+@define-color bg alpha(#282828, 0.1);
 /* @define-color bg transparent; */
-@define-color alt-bg #1d2021;
+@define-color alt-bg #3c3836;
 @define-color fg #a9b665;
-@define-color workspace-active #333e34;
+@define-color workspace-active #504945;

@@ -11,9 +11,9 @@ configuration {
     display-window: "Window";
     display-Network: "Network";
     font: "JetBrainsMono Nerd Font 14";
-    sidebar-mode: true;
+    sidebar-mode: false;
 }
-// @theme "~/.cache/wal/colors-rofi-dark.rasi"
+
 @theme "./theme.rasi"
 
 element-text, element-icon , mode-switcher {
@@ -33,6 +33,7 @@ window {
 
 mainbox {
   background-color: @bg;
+  children: [inputbar, message, listview];
 }
 
 inputbar {
@@ -63,7 +64,7 @@ entry {
   text-color: @text;
   background-color: @bg;
   border-radius: 0 4px 4px 0;
-  placeholder: "Search...";
+  placeholder: "Search";
   border-color: @border;
   border-width: 2px;
   border: 2px;

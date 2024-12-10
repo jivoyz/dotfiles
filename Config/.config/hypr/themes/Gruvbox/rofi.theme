@@ -4,8 +4,9 @@
   text: #d3be98;
   prompt-text: @text;
   border: #a9b665;
-  bg-selected: #3c3836;
-  text-selected: @text;
+  // bg-selected: #3c3836;
+  bg-selected: @border;
+  text-selected: @bg;
   btn-bg: @bg;
   btn-bg-selected: @bg-selected;
   btn-text: @text;

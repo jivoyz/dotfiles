@@ -5,7 +5,7 @@
 ## upstream: https://raw.githubusercontent.com/rsaihe/gruvbox-material-kitty/main/colors/gruvbox-material-dark-medium.conf
 ## blurb: A modified version of Gruvbox with softer contrasts
 
-background_opacity 0.90
+background_opacity 1
 
 background #282828
 foreground #d4be98

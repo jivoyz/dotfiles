@@ -20,12 +20,16 @@ screenshot_screen() {
   notify-send -i "${path}" "${path}"
 }
 
+lock_screen() {
+  hyprlock
+}
+
 scrDir=$(dirname "$(realpath "$0")")
 source ${scrDir}/global.sh
 
 rofiStyles="window {location: north; width: 20%;} inputbar {enabled: false;}"
 
-choice=$(printf "Screenshot (Area)\nScreenshot (Fullscreen)\nColor Picker" | rofi -dmenu -theme-str "${rofiStyles}")
+choice=$(printf "Screenshot (Area)\nScreenshot (Fullscreen)\nLock Screen\nColor Picker" | rofi -dmenu -theme-str "${rofiStyles}")
 
 case "${choice}" in
   "Screenshot (Area)")
@@ -36,6 +40,9 @@ case "${choice}" in
     ;;
   "Color Picker")
     color_picker
+    ;;
+  "Lock Screen")
+    lock_screen
     ;;
   *)
     command ...

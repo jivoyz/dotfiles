@@ -4,7 +4,7 @@
 ## upstream: https://github.com/rose-pine/kitty/blob/main/dist/rose-pine.conf
 ## blurb: All natural pine, faux fur and a bit of soho vibes for the classy minimalist
 
-background_opacity 0.90
+background_opacity 1
 
 foreground               #e0def4
 background               #191724

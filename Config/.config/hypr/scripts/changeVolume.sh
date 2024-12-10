@@ -9,6 +9,7 @@ function send_notification() {
   notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -a "Change volume" -u low -r 9944 -h int:value:"$volume" -i $2 "Volume ${volume}%" -t 1500
 }
 
+
 microphone_id=$(pamixer --list-sources | grep "USB Audio Device Mono" | awk '{print $1}')
 
 function send_notification_spotify() {
@@ -25,33 +26,39 @@ function send_notification_spotify() {
   notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -a " Spotify" -u low -r 9944 -h int:value:${spotify_volume} -i $spotify_icon "${msg}" -t 1500
 }
 
+function send_notification_mic() {
+  volume=$(pamixer --source ${microphone_id} --get-volume)
+  notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -a "Change volume" -u low -r 9944 -h int:value:"$volume" -i $2 "Mic Volume ${volume}%" -t 1500
+}
+
 case $1 in
 up)
   if [[ "$2" = "spotify" ]]; then
     playerctl -p spotify volume 0.05+
-    send_notification_spotify up ${iconsDir}/volume-plus.svg
+    send_notification_spotify $1
     exit 1
   fi
 
   if [[ "$2" = "microphone" ]]; then
     pamixer --source ${microphone_id} -i 5
+    send_notification_mic $1 ${iconsDir}/microphone.svg
     exit 1
   fi
 
   pamixer -u
-  pamixer -i 5 --allow-boost
+  pamixer -i 5
   send_notification $1 ${iconsDir}/volume-plus.svg
   ;;
 down)
   if [[ "$2" = "spotify" ]]; then
     playerctl -p spotify volume 0.05-
-    send_notification_spotify down ${iconsDir}/volume-minus.svg
+    send_notification_spotify down
     exit 1
   fi
 
   if [[ "$2" = "microphone" ]]; then
     pamixer --source ${microphone_id} -d 5
-    notify-send -i ${iconsDir}/volume-plus.svg
+    send_notification_mic $1 ${iconsDir}/microphone.svg
     exit 1
   fi
 
@@ -60,9 +67,13 @@ down)
   send_notification $1 ${iconsDir}/volume-minus.svg
   ;;
 mute)
-
   if [[ "$2" == "microphone" ]]; then
     pamixer --source ${microphone_id} -t
+    if pamixer --source ${microphone_id} --get-mute; then
+      send_notification_mic $1 ${iconsDir}/microphone.svg
+    else 
+      send_notification_mic $1 ${iconsDir}/microphone-muted.svg
+    fi
     exit 1
   fi
 
@@ -72,12 +83,5 @@ mute)
   else
     notify-send -i ${iconsDir}/volume-mute.svg -a "󰓃 Volume" -t 1500 -r 9944 -u low "Muted"
   fi
-
-  # if [[ "$2" = "microphone" ]]; then
-  #    if [[ $(pamixer --get-mute) == false ]]; then
-  #      send_notification_spotify up ${iconsDir}/volume-plus.svg
-  #    fi
-  # 	exit 1
-  # fi
   ;;
 esac
