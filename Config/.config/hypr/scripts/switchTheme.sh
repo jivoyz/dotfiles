@@ -17,6 +17,11 @@ notify-send -e -a "Theme Switch" $THEME_NAME
 
 ln -fs "${confDir}/hypr/themes/"${1}"/"${1}".json" "${confDir}/hypr/theme.json"
 
+# waybar
+# killall -SIGUSR1 waybar
+sed -i "/^@import url/c\@import url(\"./themes/$THEME_NAME.css\");" ${confDir}/waybar/style.css
+# waybar & disown
+
 # hyprland
 ln -fs "${confDir}/hypr/themes/"${1}"/hyprland.theme" "${confDir}/hypr/theme.conf"
 
@@ -55,7 +60,3 @@ echo "${wallPath}"
 sh ${confDir}/hypr/scripts/swwallchange.sh "${wallPath}"
 notify-send -e -a "Theme Switch" "Wallpaper has been set"
 
-# waybar
-killall waybar
-sed -i "/^@import url/c\@import url(\"./themes/$THEME_NAME.css\");" ${confDir}/waybar/style.css
-waybar & disown

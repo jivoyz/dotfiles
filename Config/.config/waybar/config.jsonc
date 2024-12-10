@@ -22,8 +22,14 @@
 
   "group/cpu_ram": {
     "orientation": "horizontal",
-    "modules": ["cpu", "memory"],
+    "modules": ["cpu", "memory"]
   },
+
+  "disk": {
+    "interval": 30,
+    "format": "   {free}",
+    "path": "/"
+    },
 
   "custom/spotify": {
     "exec": "/usr/bin/python3 ~/.config/hypr/scripts/mediaplayer.py --player spotify",
@@ -44,7 +50,7 @@
   },
 
   "hyprland/window": {
-    "format": "󰌽   {initialTitle}",
+    "format": "    {initialTitle}",
     "separate-outputs": true,
     "max-length": 48,
   },
@@ -63,6 +69,24 @@
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format": "   {:%a %d %b   %H:%M}",
+    "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "weekdays": "<span color='#ffcc64'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
   },
   "cpu": {
     "format": "   {usage}%",
@@ -141,8 +165,8 @@
     "format": "{}  {icon}",
     "return-type": "json",
     "format-icons": {
-        "has-updates": "󰏗",
-        "updated": "󰏗"
+        "has-updates": "",
+        "updated": ""
     },
     "exec-if": "which waybar-module-pacman-updates",
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"

@@ -29,20 +29,20 @@ source ${scrDir}/global.sh
 
 rofiStyles="window {location: north; width: 20%;} inputbar {enabled: false;}"
 
-choice=$(printf "Screenshot (Area)\nScreenshot (Fullscreen)\nLock Screen\nColor Picker" | rofi -dmenu -theme-str "${rofiStyles}")
+choice=$(printf " Screenshot (Area)\n󰹑 Screenshot (Fullscreen)\n Lock Screen\n Color Picker" | rofi -dmenu -theme-str "${rofiStyles}")
 
 case "${choice}" in
-  "Screenshot (Area)")
+  " Screenshot (Area)")
     screenshot_area
     ;;
-  "Screenshot (Fullscreen)")
+  "󰹑 Screenshot (Fullscreen)")
     screenshot_screen
     ;;
-  "Color Picker")
-    color_picker
-    ;;
-  "Lock Screen")
+  " Lock Screen")
     lock_screen
+    ;;
+  " Color Picker")
+    color_picker
     ;;
   *)
     command ...

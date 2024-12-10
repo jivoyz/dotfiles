@@ -23,9 +23,14 @@ setWallpaper() {
 cacheWallpaper() {
   # Add wallpaper to .cache directory so it will be used as background for hyprlock
   # $1 - wallpaper path
-  if [[ $1 == "$1: png" ]]; then
+  if [[ "$1" == *.png ]]; then
     echo "This is .png image. No need to convert it"
     cp "$1" "${cacheDir}/wallpaper.png"
+  elif [[ "$1" == *.gif ]]; then
+    echo "Extracting first frame from .gif file"
+    cp "$1" "${cacheDir}/wallpaper.gif"
+    magick "${cacheDir}/wallpaper.gif[0]" "${cacheDir}/wallpaper.png"
+    rm -rf "${cacheDir}/wallpaper.gif"
   else
     # Convert image to png because hyprlock does not want to work with .jpg for some reason
     echo "Converting .jpg to .png..."

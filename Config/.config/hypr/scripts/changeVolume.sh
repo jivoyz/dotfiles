@@ -6,7 +6,7 @@ iconsDir=$HOME/.local/assets/
 
 function send_notification() {
   volume=$(pamixer --get-volume)
-  notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -a "Change volume" -u low -r 9944 -h int:value:"$volume" -i $2 "Volume ${volume}%" -t 1500
+  notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -a "Change volume" -u low -r 9944 -h int:value:"$volume" -i $2 "󰓃 Volume ${volume}%" -t 1500
 }
 
 
@@ -22,13 +22,12 @@ function send_notification_spotify() {
 
   msg=" ${track_data} 
 󰓃 Volume: ${spotify_volume}%"
-
   notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -a " Spotify" -u low -r 9944 -h int:value:${spotify_volume} -i $spotify_icon "${msg}" -t 1500
 }
 
 function send_notification_mic() {
   volume=$(pamixer --source ${microphone_id} --get-volume)
-  notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -a "Change volume" -u low -r 9944 -h int:value:"$volume" -i $2 "Mic Volume ${volume}%" -t 1500
+  notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low -a "Change volume" -u low -r 9944 -h int:value:"$volume" -i $2 " Mic Volume ${volume}%" -t 1500
 }
 
 case $1 in
@@ -69,7 +68,7 @@ down)
 mute)
   if [[ "$2" == "microphone" ]]; then
     pamixer --source ${microphone_id} -t
-    if pamixer --source ${microphone_id} --get-mute; then
+    if [[ $(pamixer --source ${microphone_id} --get-mute) == false ]]; then
       send_notification_mic $1 ${iconsDir}/microphone.svg
     else 
       send_notification_mic $1 ${iconsDir}/microphone-muted.svg
