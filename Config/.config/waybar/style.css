@@ -1,4 +1,4 @@
-@import url("./themes/Tokyo-Night.css");
+@import url("./themes/Catppuccin-Macchiato.css");
 
 * {
   font-size: 15px;
@@ -43,6 +43,14 @@ window#waybar {
   background-color: @alt-bg;
   /* border: 2px solid @fg; */
   /* border-bottom: 2px solid @fg; */
+}
+
+#custom-logo {
+  margin: 3px 4px;
+  font-size: 18px;
+  padding: 0 8px 0 12px;
+  border-radius: 16px;
+  /* background-color: @alt-bg; */
 }
 
 #cpu,

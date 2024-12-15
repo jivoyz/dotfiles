@@ -13,7 +13,7 @@ pavucontrol
 cliphist
 swww
 rofi-lbonn-wayland-only-git
-nemo
+thunar
 btop
 cava
 dunst

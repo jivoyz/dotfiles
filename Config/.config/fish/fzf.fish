@@ -1,7 +1,6 @@
-  set -x FZF_DEFAULT_OPTS "
-  --color=fg:#c0caf5,bg:#1a1b26,hl:#e0af68
-  --color=fg:#c0caf5,bg:#1a1b26,hl:#e0af68
-  --color=border:#7aa2f7,header:#9ece6a,gutter:#1a1b26
-  --color=spinner:#e0af68,info:#73daca
-  --color=pointer:#bb9af7,marker:#f7768e,prompt:#1a1b26"
-
+set -x FZF_DEFAULT_OPTS "\
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
+--color=selected-bg:#494d64 \
+--multi"
