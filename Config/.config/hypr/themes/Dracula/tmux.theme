@@ -7,34 +7,34 @@ setw -g monitor-activity off
 set -g bell-action none
 
 # clock mode
-setw -g clock-mode-colour #d8a657
+setw -g clock-mode-colour #ffb86c
 
 # copy mode
-setw -g mode-style 'fg=#e0def4 bg=#7c6f64 bold'
+setw -g mode-style 'fg=#ff79c6 bg=#282a36 bold'
 
 # panes
-set -g pane-border-style 'fg=#44475A'
-set -g pane-active-border-style 'fg=#FFB86C'
+set -g pane-border-style 'fg=#f8f8f2'
+set -g pane-active-border-style 'fg=#ff79c6'
 
 # statusbar
 set -g status-position top
 set -g status-justify left
-set -g status-style 'fg=#F8F8F2'
+set -g status-style 'fg=#f8f8f2'
 
 set -g status-left ''
 set -g status-left-length 10
 
-set -g status-right-style 'fg=#F8F8F2 bg=#282A36'
-set -g status-right '#[fg=#BD93F9] #(git -C #{pane_current_path} rev-parse --abbrev-ref HEAD)  #[fg=#FFB86C]󰥔 %Y-%m-%d %H:%M '
+set -g status-right-style 'fg=#f8f8f2 bg=#282a36'
+set -g status-right '#[fg=#50fa7b] #(git -C #{pane_current_path} rev-parse --abbrev-ref HEAD)  #[fg=#ffb86c]󰥔 %Y-%m-%d %H:%M '
 set -g status-right-length 50
 
-setw -g window-status-current-style 'fg=#F8F8F2 bg=#6272A4'
-setw -g window-status-current-format ' #I #W #[fg=#f6c177]#F '
+setw -g window-status-current-style 'fg=#f8f8f2 bg=#282a36'
+setw -g window-status-current-format ' #I #W #[fg=#ff79c6]#F '
 
-setw -g window-status-style 'fg=#F8F8F2 bg=#282A36'
-setw -g window-status-format ' #I #[fg=#908caa]#W #[fg=#ebbcba]#F '
+setw -g window-status-style 'fg=#f8f8f2 bg=#282a36'
+setw -g window-status-format ' #I #[fg=#f8f8f2]#W #[fg=#e29eca]#F '
 
-setw -g window-status-bell-style 'fg=#FFB86C bg=#FF5555 bold'
+setw -g window-status-bell-style 'fg=#ffb86c bg=#e29eca bold'
 
 # messages
-set -g message-style 'fg=#F8F8F2 bg=#44475A bold'
+set -g message-style 'fg=#f8f8f2 bg=#44475a bold'
