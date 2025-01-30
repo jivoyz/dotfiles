@@ -1,4 +1,4 @@
-@import url("./themes/Dracula.css");
+@import url("./themes/Catppuccin-Latte.css");
 
 * {
   font-size: 15px;
@@ -72,5 +72,5 @@ window#waybar {
 }
 
 #custom-power {
-  padding: 0 16px 0 12px;
+  padding: 0 8px 0 12px;
 }
