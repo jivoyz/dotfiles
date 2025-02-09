@@ -39,6 +39,8 @@ imagemagick
 nwg-look
 ttf-jetbrains-mono-nerd
 emote
+telegram-desktop
+obsidian
 
 git
 jq
@@ -48,6 +50,7 @@ eza
 pamixer
 networkmanager
 network-manager-applet
+udiskie
 nodejs-lts-iron
 npm
 yarn
