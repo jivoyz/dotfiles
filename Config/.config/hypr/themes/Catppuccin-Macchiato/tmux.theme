@@ -1,11 +1,3 @@
-# DESIGN TWEAKS
-# don't do anything when a 'bell' rings
-set -g visual-activity off
-set -g visual-bell off
-set -g visual-silence off
-setw -g monitor-activity off
-set -g bell-action none
-
 # clock mode
 setw -g clock-mode-colour #eed49f
 
@@ -17,23 +9,11 @@ set -g pane-border-style 'fg=#b8c0e0'
 set -g pane-active-border-style 'fg=#a6da95'
 
 # statusbar
-set -g status-position top
-set -g status-justify left
-set -g status-style 'fg=#b8c0e0'
+set -g status-style 'fg=#24273a bg=#a6da95'
 
-set -g status-left ''
-set -g status-left-length 10
+setw -g window-status-current-style 'fg=#24273a bg=#8aadf4'
 
-set -g status-right-style 'fg=#b8c0e0 bg=#24273a'
-set -g status-right '#[fg=#f5bde6] #(git -C #{pane_current_path} rev-parse --abbrev-ref HEAD)  #[fg=#eed49f]󰥔 %Y-%m-%d %H:%M '
-set -g status-right-length 50
-
-setw -g window-status-current-style 'fg=#b8c0e0 bg=#24273a'
-setw -g window-status-current-format ' #I #W #[fg=#a6da95]#F '
-
-setw -g window-status-style 'fg=#b8c0e0 bg=#24273a'
-setw -g window-status-format ' #I #[fg=#b8c0e0]#W #[fg=#ed8796]#F '
-
+setw -g window-status-style 'fg=#24273a'
 setw -g window-status-bell-style 'fg=#eed49f bg=#ed8796 bold'
 
 # messages

@@ -17,23 +17,11 @@ set -g pane-border-style 'fg=#9ca0b0'
 set -g pane-active-border-style 'fg=#dc8a78'
 
 # statusbar
-set -g status-position top
-set -g status-justify left
-set -g status-style 'fg=#4c4f69'
+set -g status-style 'fg=#dce0e8 bg=#40a02b'
 
-set -g status-left ''
-set -g status-left-length 10
+setw -g window-status-current-style 'fg=#dce0e8 bg=#179299'
 
-set -g status-right-style 'fg=#4c4f69 bg=#dce0e8'
-set -g status-right '#[fg=#7287fd] #(git -C #{pane_current_path} rev-parse --abbrev-ref HEAD)  #[fg=#40a02b]󰥔 %Y-%m-%d %H:%M '
-set -g status-right-length 50
-
-setw -g window-status-current-style 'fg=#4c4f69 bg=#ccd0da'
-setw -g window-status-current-format ' #I #W #[fg=#ea76cb]#F '
-
-setw -g window-status-style 'fg=#4c4f69 bg=#eff1f5'
-setw -g window-status-format ' #I #[fg=#7c7f93]#W #[fg=#40a02b]#F '
-
+setw -g window-status-style 'fg=#dce0e8'
 setw -g window-status-bell-style 'fg=#df8e1d bg=#e64553 bold'
 
 # messages
