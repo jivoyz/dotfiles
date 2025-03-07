@@ -16,11 +16,10 @@ if status is-interactive
 
     # Set up fzf key bindings
     fzf --fish | source
-    set -x FZF_DEFAULT_COMMAND "fd --type f --strip-cwd-prefix --hidden --follow --exclude .git --exclude node_modules"
 
     fish_vi_key_bindings
-    bind -M insert \cf "sh ~/.config/hypr/scripts/tmux-sessionizer.sh"
-    bind -M insert \cn "sh ~/.config/hypr/scripts/search-notes.sh"
+    bind -M insert \cf "sh ~/.local/scripts/tmux-sessionizer.sh"
+    bind -M insert \cn "sh ~/.local/scripts/search-notes.sh"
 
     alias ls="exa --icons"
     alias la="exa --icons -a"

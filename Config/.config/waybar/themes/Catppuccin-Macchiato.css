@@ -1,6 +1,5 @@
-/*@define-color bg #2a273f;*/
-@define-color bg transparent;
-@define-color alt-bg #363a4f;
+@define-color bg #24273a;
 @define-color fg #cad3f5;
-@define-color workspace-active #6e738d;
+@define-color wp-bg-active #a6da95;
+@define-color wp-fg-active @bg;
 

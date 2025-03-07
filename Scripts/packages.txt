@@ -1,4 +1,6 @@
 hyprland-git
+sway
+autotiling-rs
 xdg-desktop-portal-hyprland
 less
 man-db

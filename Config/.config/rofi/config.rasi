@@ -100,20 +100,6 @@ mode-switcher {
   enabled: false;
 }
 
-button {
-  padding: 10px;
-  background-color: @btn-bg;
-  vertical-align: 0.5;
-  horizontal-align: 0.5;
-  enabled: true;
-  text-color: @text;
-  border-radius: 4px;
-}
-
-button selected {
-  background-color: @btn-bg-selected;
-}
-
 message {
   background-color: @bg;
   text-color: @text;

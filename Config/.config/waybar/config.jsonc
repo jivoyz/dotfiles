@@ -1,23 +1,23 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  "height": 30, // Waybar height (to be removed for auto height)
+  // "height": 30, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
   "reload_style_on_change": true,
   // Choose the order of the modules
-  "modules-left": ["hyprland/workspaces", "tray", "group/cpu_ram", "backlight"],
+  "modules-left": ["sway/workspaces", "tray", "group/cpu_ram", "backlight"],
   "modules-center": ["custom/spotify"],
   "modules-right": ["group/hardware", "group/info"],
 
   "group/info": {
     "orientation": "horizontal",
-    "modules": ["hyprland/language", "clock"],
+    "modules": ["sway/language", "clock"],
   },
 
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": ["custom/updates", "pulseaudio", "pulseaudio#microphone", "network"],
+    "modules": ["disk","custom/updates", "pulseaudio", "pulseaudio#microphone", "network"],
   },
 
   "group/cpu_ram": {
@@ -32,24 +32,24 @@
     },
 
   "custom/spotify": {
-    "exec": "/usr/bin/python3 ~/.config/hypr/scripts/mediaplayer.py --player spotify",
+    "exec": "/usr/bin/python3 ~/.local/scripts/mediaplayer.py --player spotify",
     "format": " {}",
     "return-type": "json",
     "on-click": "playerctl play-pause --player spotify",
     "on-click-right": "playerctl next --player spotify",
     "on-click-middle": "playerctl previous --player spotify",
-    "on-scroll-up": "~/.config/hypr/scripts/changeVolume.sh up spotify",
-    "on-scroll-down": "~/.config/hypr/scripts/changeVolume.sh down spotify",
+    "on-scroll-up": "~/.local/scripts/changeVolume.sh up spotify",
+    "on-scroll-down": "~/.local/scripts/changeVolume.sh down spotify",
     "max-length": 25,
     "escape": true,
     "tooltip": true,
   },
 
-  "hyprland/workspaces": {
+  "sway/workspaces": {
     "all-outputs": true,
   },
 
-  "hyprland/window": {
+  "sway/window": {
     "format": "    {initialTitle}",
     "separate-outputs": true,
     "max-length": 48,
@@ -111,8 +111,9 @@
     "format-alt": "{ifname}: {ipaddr}",
   },
 
-  "hyprland/language": {
+  "sway/language": {
     "format": "   {}",
+    "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
     "format-en": "US",
     "format-ru": "RU",
     "format-uk": "UA",
@@ -136,9 +137,9 @@
       "default": ["", "  ", "   "],
     },
     "on-click": "pavucontrol",
-    "on-scroll-up": "~/.config/hypr/scripts/changeVolume.sh up",
-    "on-scroll-down": "~/.config/hypr/scripts/changeVolume.sh down",
-    "on-click-right": "~/.config/hypr/scripts/changeVolume.sh mute",
+    "on-scroll-up": "~/.local/scripts/changeVolume.sh up",
+    "on-scroll-down": "~/.local/scripts/changeVolume.sh down",
+    "on-click-right": "~/.local/scripts/changeVolume.sh mute",
   },
 
 
@@ -149,16 +150,16 @@
     "format-source-muted": "   ",
     "on-click": "pavucontrol -t 4",
     //"on-click-middle": "pamixer --sou",
-    "on-scroll-up": "~/.config/hypr/scripts/changeVolume.sh up microphone",
-    "on-scroll-down": "~/.config/hypr/scripts/changeVolume.sh down microphone",
-    "on-click-right": "~/.config/hypr/scripts/changeVolume.sh mute microphone",
+    "on-scroll-up": "~/.local/scripts/changeVolume.sh up microphone",
+    "on-scroll-down": "~/.local/scripts/changeVolume.sh down microphone",
+    "on-click-right": "~/.local/scripts/changeVolume.sh mute microphone",
     "tooltip-format": "{format_source} {source_desc} // {source_volume}%",
     "scroll-step": 5
 },
 
   "custom/power": {
     "format": "",
-    "on-click": "~/.config/hypr/scripts/rofiPowerMenu.sh",
+    "on-click": "~/.local/scripts/rofiPowerMenu.sh",
   },
 
   "custom/updates": {

@@ -115,6 +115,16 @@ if [[ -d $HOME/.local/assets ]]; then
 fi
 ln -sf ${cloneDir}/Config/.local/assets $HOME/.local/assets
 
+if [[ -d $HOME/.local/scripts ]]; then
+  mv $HOME/.local/scripts $HOME/.local/scripts.bak
+fi
+ln -sf ${cloneDir}/Config/.local/scripts $HOME/.local/scripts
+
+if [[ -d $HOME/.local/themes ]]; then
+  mv $HOME/.local/themes $HOME/.local/themes.bak
+fi
+ln -sf ${cloneDir}/Config/.local/themes $HOME/.local/themes
+
 # Copying config files to $HOME/.config
 echo "Copying configuration files into "~/.config"..."
 cp -r "${cloneDir}"/Config/.local/. $HOME/.local

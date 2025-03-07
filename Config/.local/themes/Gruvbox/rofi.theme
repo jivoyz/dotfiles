@@ -1,0 +1,9 @@
+* {
+  base: #282828;
+  bg: #282828;
+  text: #d3be98;
+  prompt-text: @text;
+  border: #a9b665;
+  bg-selected: @border;
+  text-selected: @bg;
+}
