@@ -17,6 +17,9 @@
     # Start your launcher
     bindsym $mod+e exec thunar
 
+    # logout menu
+    bindsym $mod+Backspace exec wlogout -b 4
+
     # bindsym $mod+TAB exec swaymsg focus next
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -99,12 +102,11 @@
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    # bindsym $mod+v splitv
+    bindsym $mod+w layout toggle split tabbed
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
+    bindsym $mod+s layout toggle stacking
+    # bindsym $mod+w layout toggle tabbed
     # bindsym $mod+j layout toggle split
 
     # Make the current focus fullscreen
@@ -162,8 +164,15 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+    
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioPause exec playerctl play-pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+
     # Special key to take a screenshot with grim
     bindsym Print exec grim

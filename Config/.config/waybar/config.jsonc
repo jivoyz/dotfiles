@@ -5,8 +5,9 @@
   // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
   "reload_style_on_change": true,
+  "ipc": true,
   // Choose the order of the modules
-  "modules-left": ["sway/workspaces", "tray", "group/cpu_ram", "backlight"],
+  "modules-left": ["sway/workspaces", "tray", "group/cpu_ram", "sway/window"],
   "modules-center": ["custom/spotify"],
   "modules-right": ["group/hardware", "group/info"],
 
@@ -50,9 +51,10 @@
   },
 
   "sway/window": {
-    "format": "    {initialTitle}",
+    // "format": "    {title}",
+    "format": "   {title}",
     "separate-outputs": true,
-    "max-length": 48,
+    "max-length": 24,
   },
 
   "idle_inhibitor": {
@@ -108,7 +110,8 @@
     "tooltip-format": " {ifname} via {gwaddr}",
     "format-linked": " (No IP)",
     "format-disconnected": "󰖪",
-    "format-alt": "{ifname}: {ipaddr}",
+    "format-disabled": "󰖪",
+    "format-alt": "{icon}  {bandwidthDownBytes}",
   },
 
   "sway/language": {

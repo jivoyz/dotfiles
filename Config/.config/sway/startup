@@ -5,5 +5,5 @@ exec wl-paste --type text --watch cliphist store # clipboard store text
 exec wl-paste --type image --watch cliphist store # clipboard store image
 exec nm-applet --indicator
 exec udiskie --no-automount --smart-tray
-exec gammastep -l 48:34 -t 6500:4000
+exec gammastep -l 48:34 -t 6500:3200
 exec autotiling-rs

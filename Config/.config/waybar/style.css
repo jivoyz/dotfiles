@@ -6,8 +6,30 @@
 }
 
 window#waybar {
-  background-color: @bg;
+  background-color: @wp-bg-active;
+  border-radius: 0px;
   color: @fg;
+}
+
+window#waybar.empty .modules-left, .modules-center, .modules-right {
+  background-color: @bg;
+}
+
+window#waybar:not(.empty) #window {
+  background-color: @wp-bg-active;
+  color: @wp-fg-active;
+}
+
+window#waybar.empty {
+  background-color: @bg;
+}
+
+.modules-left, .modules-center, .modules-right {
+  background-color: @bg;
+}
+
+.modules-right {
+  padding-left: 4px;
 }
 
 #workspaces button {
@@ -15,6 +37,7 @@ window#waybar {
   border-radius: 0px;
   padding: 0px 0px;
   margin: 0px 0px;
+  color: red;
   color: @fg;
   background-color: transparent;
 }
@@ -26,6 +49,7 @@ window#waybar {
 #workspaces button.focused {
   background-color: @wp-bg-active;
   color: @wp-fg-active;
+  /* padding: 0 0px; */
 }
 
 #hardware,
@@ -35,16 +59,20 @@ window#waybar {
 #tray,
 #cpu_ram,
 #custom-spotify {
-  margin: 4px 0;
-  padding: 0px 10px;
+  /* margin: 3px 2px 3px 2px; */
+  margin: 0 0px;
+  padding: 0px 6px;
   border-radius: 0px;
+  /* border: 2px solid @fg; */
+  /* border-bottom: 2px solid @wp-bg-active; */
 }
 
 #custom-logo {
   margin: 3px 4px;
   font-size: 18px;
   padding: 0 8px 0 12px;
-  border-radius: 0px;
+  border-radius: 16px;
+  /* background-color: @alt-bg; */
 }
 
 #cpu,
