@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NOTES_FOLDER="$HOME/Notes"
+NOTES_FOLDER="$HOME/vaults/Notes"
 cd "$NOTES_FOLDER"
 option="$1"
 # Get the title from the first argument

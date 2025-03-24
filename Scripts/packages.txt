@@ -4,6 +4,8 @@ autotiling-rs
 xdg-desktop-portal-hyprland
 less
 man-db
+tumbler
+ffmpegthumbnailer
 unzip
 hyprlock
 waybar

@@ -13,6 +13,7 @@ if status is-interactive
     zoxide init fish | source
     fish_add_path $HOME/.local/bin
     source ~/.config/fish/fzf.fish
+    set fish_cursor_default block
 
     # Set up fzf key bindings
     fzf --fish | source
@@ -20,6 +21,7 @@ if status is-interactive
     fish_vi_key_bindings
     bind -M insert \cf "sh ~/.local/scripts/tmux-sessionizer.sh"
     bind -M insert \cn "sh ~/.local/scripts/search-notes.sh"
+
 
     alias ls="exa --icons"
     alias la="exa --icons -a"

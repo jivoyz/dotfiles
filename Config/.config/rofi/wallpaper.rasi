@@ -1,15 +1,11 @@
 configuration {
-    modi: "run,drun,window";
+    modi: "run,drun";
     show-icons: true;
     terminal: "kitty";
-    drun-display-format: "{icon} {name}";
+    drun-display-format: "{icon}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: "Apps";
-    display-run: "Run";
-    display-window: "Window";
-    display-Network: "Network";
     font: "JetBrainsMono Nerd Font 14";
     sidebar-mode: false;
 }
@@ -22,12 +18,9 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-  width: 30%;
+  width: 100%;
   height: 560px;
   background-color: @bg;
-  border-radius: 4px;
-  border-color: @border;
-  border: 2px;
   location: center;
 }
 
@@ -37,6 +30,7 @@ mainbox {
 }
 
 inputbar {
+  enabled: false;
   children: [prompt,entry];
   background-color: @bg;
   border-radius: 5px;
@@ -74,20 +68,21 @@ listview {
   border: 0px 0px 0px;
   padding: 6px;
   margin: 10px 10px 0px 10px;
-  columns: 1;
-  lines: 5;
+  columns: 4;
+  lines: 1;
   background-color: @bg;
 }
 
 element {
-  padding: 4px;
+  padding: 0px;
+  margin: 0px 8px;
   background-color: @bg;
   text-color: @text;
   border-radius: 2px;
 }
 
 element-icon {
-  size: 36px;
+  size: 20em;
 }
 
 element selected {
@@ -95,22 +90,11 @@ element selected {
   text-color: @text-selected;
 }
 
-mode-switcher {
-  spacing: 0;
-  enabled: false;
-}
-
-message {
-  background-color: @bg;
-  text-color: @text;
-  margin: 2px;
-  padding: 2px;
-  border-radius: 5px;
-}
-
-textbox {
-  padding: 6px;
-  margin: 20px 0px 0px 20px;
-  text-color: @text;
-  background-color: @bg;
+element-text {
+enabled: false;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+    cursor:                      inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
 }

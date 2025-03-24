@@ -7,3 +7,8 @@ exec nm-applet --indicator
 exec udiskie --no-automount --smart-tray
 exec gammastep -l 48:34 -t 6500:3200
 exec autotiling-rs
+
+# start these programs on specific workspaces
+exec swaymsg "workspace 3; exec kitty;"
+exec swaymsg "workspace 1; exec floorp;"
+exec swaymsg "workspace 2; exec obsidian;"

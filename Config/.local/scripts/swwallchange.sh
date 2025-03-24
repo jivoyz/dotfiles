@@ -4,15 +4,14 @@ scrDir=$(dirname "$(realpath "$0")")
 source ${scrDir}/global.sh
 
 imageToSet=$1
-
-rofiCmd="rofi -dmenu -p "Wallpaper""
-
 THEME=$(cat "$HOME/.local/theme.json" | jq -r '.themeName')
+
 wallpaper_folder="${themesDir}/${THEME}/wallpapers"
 
 # If path to image is not specified in parameters then let user to choose wallpaper
 if [[ -z "${imageToSet}" ]]; then
-  choice="$(ls "${wallpaper_folder}" | ${rofiCmd})"
+  select=$(for a in ${wallpaper_folder}/*; do echo -en "$a\0icon\x1f$a\n" ; done | rofi -dmenu -config ~/.config/rofi/wallpaper.rasi)
+  choice="$select"
 fi
 
 setWallpaper() {
@@ -49,12 +48,12 @@ if [[ -n "${imageToSet}" ]]; then
   exit 1
 fi
 
-if [[ -d $wallpaper_folder/$choice ]]; then
+if [[ -d "$wallpaper_folder/${choice}" ]]; then
   wallpaper_temp="${choice}"
-elif [[ -f "$wallpaper_folder"/"${choice}" ]]; then
-  wallPath="${wallpaper_folder}/${wallpaper_temp}/${choice}"
+elif [[ -f "${choice}" ]]; then
+  wallPath="${choice}"
   # Update $THEME.json
-  jq --arg wallpaper "$choice" '.wallpaper = $wallpaper' "${themesDir}/$THEME/$THEME.json" > "${cacheDir}/tmp.json" && mv "${cacheDir}/tmp.json" "${themesDir}/$THEME/$THEME.json"
+  jq --arg wallpaper "${choice##*/}" '.wallpaper = $wallpaper' "${themesDir}/$THEME/$THEME.json" > "${cacheDir}/tmp.json" && mv "${cacheDir}/tmp.json" "${themesDir}/$THEME/$THEME.json"
 
   echo "${wallPath}"
   setWallpaper "${wallPath}"

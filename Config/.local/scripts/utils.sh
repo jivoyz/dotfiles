@@ -4,20 +4,20 @@ color_picker() {
   format=$(printf "hex\nrgb\nhsl\nhsv" | rofi -dmenu)
   sleep 1
   color=$(hyprpicker --format=${format} --autocopy)
-  notify-send "${color}
-  copied to clipboard"
+  notify-send "${color} copied to clipboard"
 }
 
 screenshot_area() {
   sleep 0.5
-  path=$(grimblast copysave area $HOME/Pictures/"$(date)".png)
-  notify-send -i "${path}" "${path}"
+  path=$(grim -g "$(slurp)" -c "$HOME/Pictures/$(date).png")
+  echo $path
+  notify-send -i "$HOME/Pictures/$(date).png" "Screenshot"
 }
 
 screenshot_screen() {
   sleep 0.5
-  path=$(grimblast copysave screen $HOME/Pictures/"$(date)".png)
-  notify-send -i "${path}" "${path}"
+  path=$(grim -c "$HOME/Pictures/$(date).png")
+  notify-send -i "$HOME/Pictures/$(date).png" "Screenshot"
 }
 
 lock_screen() {
@@ -45,7 +45,7 @@ case "${choice}" in
     color_picker
     ;;
   *)
-    command ...
+    exit 1
     ;;
 esac
 

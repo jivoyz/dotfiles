@@ -1,11 +1,10 @@
 {
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  // "height": 30, // Waybar height (to be removed for auto height)
-  // "width": 1280, // Waybar width
+  "height": 30, // Waybar height (to be removed for auto height)
+  "width": 0, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
   "reload_style_on_change": true,
-  "ipc": true,
   // Choose the order of the modules
   "modules-left": ["sway/workspaces", "tray", "group/cpu_ram", "sway/window"],
   "modules-center": ["custom/spotify"],
@@ -18,7 +17,7 @@
 
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": ["disk","custom/updates", "pulseaudio", "pulseaudio#microphone", "network"],
+    "modules": ["custom/updates", "pulseaudio", "pulseaudio#microphone"],
   },
 
   "group/cpu_ram": {
@@ -51,8 +50,8 @@
   },
 
   "sway/window": {
-    // "format": "    {title}",
-    "format": "   {title}",
+    "format": "{title}",
+    "icon": true,
     "separate-outputs": true,
     "max-length": 24,
   },
@@ -70,7 +69,7 @@
   },
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "   {:%a %d %b   %H:%M}",
+    "format": "   {:%a %d %b      %H:%M}",
     "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
@@ -117,6 +116,7 @@
   "sway/language": {
     "format": "   {}",
     "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+    // format works in Hyprland
     "format-en": "US",
     "format-ru": "RU",
     "format-uk": "UA",
@@ -152,7 +152,7 @@
     "format-source": " ",
     "format-source-muted": "   ",
     "on-click": "pavucontrol -t 4",
-    //"on-click-middle": "pamixer --sou",
+    // "on-click-middle": "pamixer --sou",
     "on-scroll-up": "~/.local/scripts/changeVolume.sh up microphone",
     "on-scroll-down": "~/.local/scripts/changeVolume.sh down microphone",
     "on-click-right": "~/.local/scripts/changeVolume.sh mute microphone",
