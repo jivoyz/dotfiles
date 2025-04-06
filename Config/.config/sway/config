@@ -13,7 +13,7 @@ set $right l
 set $term kitty
 set $browser floorp
 # Your preferred application launcher
-set $menu rofi -show drun
+set $menu rofi -show drun -no-case-sensitive -matching fuzzy
 
 gaps inner 4
 gaps outer 4

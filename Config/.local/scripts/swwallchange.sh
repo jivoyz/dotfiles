@@ -7,10 +7,11 @@ imageToSet=$1
 THEME=$(cat "$HOME/.local/theme.json" | jq -r '.themeName')
 
 wallpaper_folder="${themesDir}/${THEME}/wallpapers"
+theme_wallpaper="$(jq -r '.wallpaper' ~/.local/theme.json)"
 
 # If path to image is not specified in parameters then let user to choose wallpaper
 if [[ -z "${imageToSet}" ]]; then
-  select=$(for a in ${wallpaper_folder}/*; do echo -en "$a\0icon\x1f$a\n" ; done | rofi -dmenu -config ~/.config/rofi/wallpaper.rasi)
+  select=$(for a in ${wallpaper_folder}/*; do echo -en "$a\0icon\x1f$a\n" ; done | rofi -dmenu -config ~/.config/rofi/wallpaper.rasi -select "${wallpaper_folder}/${theme_wallpaper}" -no-custom)
   choice="$select"
 fi
 

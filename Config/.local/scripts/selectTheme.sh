@@ -5,7 +5,7 @@ source ${scrDir}/global.sh
 
 styles="inputbar {enabled: false;} window {width: 20%;}"
 
-selected="$(ls "${themesDir}" | sort | rofi -dmenu -theme-str "${styles}")"
+selected="$(ls "${themesDir}" | sort | rofi -dmenu -theme-str "${styles}" -matching fuzzy -i -select "$(jq -r '.themeName' ~/.local/theme.json)")"
 
 if [ -z $selected ]; then
 	exit 1

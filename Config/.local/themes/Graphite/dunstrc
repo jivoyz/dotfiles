@@ -333,24 +333,24 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#161617"
-    foreground = "#c9c7cd"
-    frame_color = "#e29eca"
+    background = "#1F1F28"
+    foreground = "#DCD7BA"
+    frame_color = "#A292A3"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     default_icon = ~/.local/assets/bell.svg
 
 [urgency_normal]
-    background = "#161617"
-    foreground = "#c9c7cd"
-    frame_color = "#e29eca"
+    background = "#1F1F28"
+    foreground = "#DCD7BA"
+    frame_color = "#A292A3"
     timeout = 10
     override_pause_level = 30
     # Icon for notifications with normal urgency, uncomment to enable
     default_icon = ~/.local/assets/bell.svg
 
 [urgency_critical]
-    background = "#161617"
+    background = "#1F1F28"
     foreground = "#f5a191"
     frame_color = "#f5a191"
     timeout = 0

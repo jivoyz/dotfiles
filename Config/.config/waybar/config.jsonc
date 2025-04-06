@@ -6,18 +6,18 @@
   "spacing": 4, // Gaps between modules (4px)
   "reload_style_on_change": true,
   // Choose the order of the modules
-  "modules-left": ["sway/workspaces", "tray", "group/cpu_ram", "sway/window"],
+  "modules-left": ["hyprland/workspaces", "sway/workspaces", "tray", "group/cpu_ram", "hyprland/window", "sway/window"],
   "modules-center": ["custom/spotify"],
   "modules-right": ["group/hardware", "group/info"],
 
   "group/info": {
     "orientation": "horizontal",
-    "modules": ["sway/language", "clock"],
+    "modules": ["hyprland/language", "sway/language", "clock"],
   },
 
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": ["custom/updates", "pulseaudio", "pulseaudio#microphone"],
+    "modules": ["disk", "custom/updates", "pulseaudio", "pulseaudio#microphone"],
   },
 
   "group/cpu_ram": {
@@ -49,7 +49,18 @@
     "all-outputs": true,
   },
 
+  "hyprland/workspaces": {
+    "all-outputs": true,
+  },
+
   "sway/window": {
+    "format": "{title}",
+    "icon": true,
+    "separate-outputs": true,
+    "max-length": 24,
+  },
+
+  "hyprland/window": {
     "format": "{title}",
     "icon": true,
     "separate-outputs": true,
@@ -116,6 +127,12 @@
   "sway/language": {
     "format": "   {}",
     "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+  },
+
+  "hyprland/language": {
+    "format": "   {}",
+    "on-click": "hyprctl switchxkblayout current next",
+    "on-click-right": "hyprctl switchxkblayout current prev",
     // format works in Hyprland
     "format-en": "US",
     "format-ru": "RU",

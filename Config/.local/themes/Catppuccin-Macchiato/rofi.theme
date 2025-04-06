@@ -2,7 +2,7 @@
   base: #24273a;
   bg: #24273a;
   text: #cad3f5;
-  prompt-text: @text;
+  prompt-text: @bg;
   border: #a6da95;
   bg-selected: #363a4f;
   text-selected: @text;

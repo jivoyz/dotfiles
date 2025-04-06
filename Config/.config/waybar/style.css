@@ -1,7 +1,7 @@
-@import url("./themes/Graphite.css");
+@import url("./themes/Catppuccin-Mocha.css");
 
 * {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -12,7 +12,7 @@ window#waybar {
 }
 
 #waybar > box {
-  margin: 4px 8px;
+  margin: 4px 8px 0 8px;
   padding: 2px;
   background-color: @bg;
   border-radius: 8px;
@@ -24,21 +24,24 @@ window#waybar {
 
 #workspaces button {
   transition: 0.3s all;
-  padding: 0px 0px;
+  padding: 0 6px;
   border-radius: 4px;
-  color: red;
   color: @fg;
   background-color: transparent;
 }
 
-#workspaces button:hover {
-  background-color: transparent;
-}
+/* #workspaces button:hover { */
+/*   background-color: transparent; */
+/* } */
 
 #workspaces button.focused {
   background-color: @wp-bg-active;
   color: @wp-fg-active;
-  /* padding: 0 0px; */
+}
+
+#workspaces button.active {
+  background-color: @wp-bg-active;
+  color: @wp-fg-active;
 }
 
 #hardware,

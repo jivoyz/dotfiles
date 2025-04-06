@@ -1,6 +1,4 @@
 set -x FZF_DEFAULT_OPTS "\
---color=bg+:#3c3b3e,bg:#161617,spinner:#ea83a5,hl:#ea83a5 \
---color=fg:#e3e2e5,header:#e29eca,info:#ea83a5,pointer:#ea83a5 \
---color=marker:#3c3b3e,fg+:#e3e2e5,prompt:#ea83a5,hl+:#ea83a5 \
---color=selected-bg:#3c3b3e \
---multi"
+--color=bg:-1,bg+:#2A2A37,fg:-1,fg+:#DCD7BA,hl:#938AA9,hl+:#c4746e
+--color=header:#b6927b,info:#658594,pointer:#7AA89F
+--color=marker:#7AA89F,prompt:#c4746e,spinner:#8ea49e"

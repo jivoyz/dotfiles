@@ -1,9 +1,9 @@
 * {
-  base: #161617;
-  bg: #161617;
-  text: #c9c7cd;
+  base: #1F1F28;
+  bg: #1F1F28;
+  text: #DCD7BA;
   prompt-text: @text;
-  border: #e29eca;
-  bg-selected: #353539;
+  border: #A292A3;
+  bg-selected: #363646;
   text-selected: @text;
 }
