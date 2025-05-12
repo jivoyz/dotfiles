@@ -17,9 +17,20 @@ set $menu rofi -show drun -no-case-sensitive -matching fuzzy
 
 gaps inner 4
 gaps outer 4
-
 default_border pixel 2
 for_window [all] border pixel 2
+
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+for_window [app_id="nwg-look"] floating enable
+for_window [title="Add" app_id="anki"] floating enable
+for_window [title="Add" app_id="anki"] resize set 720 540
+
+assign [app_id="org.telegram.desktop"] 7
+assign [instance="spotify"] 6
+
+workspace_auto_back_and_forth yes
+# smart_gaps on
+# hide_edge_borders smart
 
 default_floating_border pixel
 font pango:monospace 0.01
@@ -30,19 +41,19 @@ titlebar_border_thickness 0
 #
 # Example configuration:
 #
-  input "type:pointer" {
-      dwt enabled
-      tap enabled
-      natural_scroll disabled
-      middle_emulation enabled
-      accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
-      pointer_accel 0 # set mouse sensitivity (between -1 and 1)
-  }
+input "type:pointer" {
+    dwt enabled
+    tap enabled
+    natural_scroll disabled
+    middle_emulation enabled
+    accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
+    pointer_accel 0 # set mouse sensitivity (between -1 and 1)
+}
 
-  input "type:keyboard" {
-    xkb_layout us,ru,ua
-    xkb_options ctrl:nocaps,grp:alt_shift_toggle
-  }
+input "type:keyboard" {
+  xkb_layout us,ru,ua
+  xkb_options ctrl:nocaps,grp:alt_shift_toggle
+}
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -66,6 +77,6 @@ titlebar_border_thickness 0
 #     }
 
 include /etc/sway/config.d/*
-include keybindings
-include startup
-include theme
+include keybindings.conf
+include startup.conf
+include theme.conf

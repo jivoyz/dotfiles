@@ -1,4 +1,4 @@
-@import url("./themes/Catppuccin-Mocha.css");
+@import url("./themes/Gruvbox.css");
 
 * {
   font-size: 16px;
@@ -25,6 +25,7 @@ window#waybar {
 #workspaces button {
   transition: 0.3s all;
   padding: 0 6px;
+  margin: 0px 0px;
   border-radius: 4px;
   color: @fg;
   background-color: transparent;

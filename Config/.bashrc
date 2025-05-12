@@ -1,13 +1,12 @@
 #
 # ~/.bashrc
 #
-
-# If not running interactively, don"t do anything
-[[ $- != *i* ]] && return
 scriptsDir="$HOME/.local/scripts"
 export EDITOR=nvim
 export PATH="${PATH}:$HOME/.local/bin"
 
+# If not running interactively, don"t do anything
+[[ $- != *i* ]] && return
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
 eval "$(zoxide init bash)"

@@ -1,6 +1,1 @@
-set -x FZF_DEFAULT_OPTS "\
---color=bg+:#313244,bg:#1e1e2e,spinner:#89b4fa,hl:#eba0ac \
---color=fg:#cdd6f4,header:#f38ba8,info:#89b4fa,pointer:#eba0ac \
---color=marker:#6c7086,fg+:#cdd6f4,prompt:#89b4fa,hl+:#eba0ac \
---color=selected-bg:#6c7086 \
---multi"
+set -x FZF_DEFAULT_OPTS '--color=fg:#d4be98,bg:#282828,hl:#d3869b --color=fg+:#a9b665,bg+:#32302f,hl+:#d3869b --color=info:#e78a4e,prompt:#7daea3,pointer:#e78a4e --color=marker:#a9b665,spinner:#ea6962,header:#d8a657'
