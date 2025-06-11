@@ -1,4 +1,4 @@
-exec swww init
+exec swww-daemon
 exec waybar
 exec dunst
 exec wl-paste --type text --watch cliphist store # clipboard store text

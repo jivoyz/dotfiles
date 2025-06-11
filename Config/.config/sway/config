@@ -77,6 +77,6 @@ input "type:keyboard" {
 #     }
 
 include /etc/sway/config.d/*
-include keybindings.conf
-include startup.conf
-include theme.conf
+include keybindings
+include startup
+include theme

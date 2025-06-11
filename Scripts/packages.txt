@@ -8,6 +8,7 @@ tumbler
 ffmpegthumbnailer
 unzip
 hyprlock
+swaylock
 waybar
 waybar-module-pacman-updates-git
 kitty

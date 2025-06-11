@@ -21,24 +21,32 @@ screenshot_screen() {
 }
 
 lock_screen() {
-  hyprlock
+  if [[ "$XDG_CURRENT_DESKTOP" = "Sway" ]]; then
+    swaylock --indicator-idle-visible --indicator-radius 100 -F -k -l  -e -i ~/.cache/wallpaper.png
+  elif [[ "$XDG_CURRENT_DESKTOP" = "Hyprland" ]]; then
+    hyprlock
+  fi
 }
 
 game_mode_hypr() {
-  HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
-  if [ "$HYPRGAMEMODE" = 1 ] ; then
-      hyprctl --batch "\
-          keyword animations:enabled 0;\
-          keyword decoration:shadow:enabled 0;\
-          keyword decoration:blur:enabled 0;\
-          keyword general:gaps_in 0;\
-          keyword general:gaps_out 0;\
-          keyword general:border_size 1;\
-          keyword decoration:rounding 0"
-      exit
+  if [[ "$XDG_CURRENT_DESKTOP" = "Hyprland" ]]; then
+    HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
+    if [ "$HYPRGAMEMODE" = 1 ] ; then
+        hyprctl --batch "\
+            keyword animations:enabled 0;\
+            keyword decoration:shadow:enabled 0;\
+            keyword decoration:blur:enabled 0;\
+            keyword general:gaps_in 0;\
+            keyword general:gaps_out 0;\
+            keyword general:border_size 1;\
+            keyword decoration:rounding 0"
+        exit
+    fi
+    hyprctl reload
+    notify-send "Game Mode Enabled"
+  else
+    notify-send -t 1000 "Not Hyprland"
   fi
-  hyprctl reload
-  notify-send "Game Mode Enabled"
 }
 
 scrDir=$(dirname "$(realpath "$0")")
