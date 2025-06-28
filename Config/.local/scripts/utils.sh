@@ -1,17 +1,41 @@
 #!/bin/bash
 
+scrDir=$(dirname "$(realpath "$0")")
+source ${scrDir}/global.sh
+
 color_picker() {
-  format=$(printf "hex\nrgb\nhsl\nhsv" | rofi -dmenu -matching fuzzy -i)
-  sleep 1
+  format=$(printf "Hex\nRGB\nHSL\nHSV" | rofi -dmenu -matching fuzzy -i)
+
+  if [[ -z "$format" ]]; then
+    exit 1
+  fi
+
+  sleep 0.5
   color=$(hyprpicker --format=${format} --autocopy)
+
+  if [[ -z "$color" ]]; then
+    exit 1
+  fi
+
   notify-send "${color} copied to clipboard"
 }
 
 screenshot_area() {
   sleep 0.5
-  path=$(grim -g "$(slurp)" -c "$HOME/Pictures/$(date).png")
-  echo $path
-  notify-send -i "$HOME/Pictures/$(date).png" "Screenshot"
+  area=$(slurp)
+
+  if [[ -z "$area" ]]; then
+    exit 1
+  fi
+
+  path="$HOME/Pictures/$(date).png"
+  grim -g "$area" -c "$path"
+  action=$(notify-send -A "Copy to clipboard" -i "$path" "Screenshot")
+
+  if [ "$action" == 0 ]; then
+    wl-copy < $path 
+    notify-send "Copied image to clipboard"
+  fi
 }
 
 screenshot_screen() {
@@ -49,9 +73,6 @@ game_mode_hypr() {
   fi
 }
 
-scrDir=$(dirname "$(realpath "$0")")
-source ${scrDir}/global.sh
-
 rofiStyles="window {location: north; width: 20%;} inputbar {enabled: false;}"
 
 choice=$(printf " Screenshot (Area)\n󰹑 Screenshot (Fullscreen)\n Lock Screen\n Color Picker\n󰊗 Game Mode (Hyprland)" | rofi -dmenu -theme-str "${rofiStyles}" -matching fuzzy -i)
@@ -76,4 +97,3 @@ case "${choice}" in
     exit 1
     ;;
 esac
-
