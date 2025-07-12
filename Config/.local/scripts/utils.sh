@@ -40,8 +40,9 @@ screenshot_area() {
 
 screenshot_screen() {
   sleep 0.5
-  path=$(grim -c "$HOME/Pictures/$(date).png")
-  notify-send -i "$HOME/Pictures/$(date).png" "Screenshot"
+  path="$HOME/Pictures/$(date).png"
+  grim -c "$path"
+  notify-send -i "$path" "Screenshot"
 }
 
 lock_screen() {

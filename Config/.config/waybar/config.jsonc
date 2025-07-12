@@ -7,7 +7,7 @@
   "reload_style_on_change": true,
   // Choose the order of the modules
   "modules-left": ["hyprland/workspaces", "sway/workspaces", "tray", "group/cpu_ram", "hyprland/window", "sway/window"],
-  "modules-center": ["custom/spotify"],
+  "modules-center": ["custom/yt-music", "custom/spotify"],
   "modules-right": ["group/hardware", "group/info"],
 
   "group/info": {
@@ -38,8 +38,22 @@
     "on-click": "playerctl play-pause --player spotify",
     "on-click-right": "playerctl next --player spotify",
     "on-click-middle": "playerctl previous --player spotify",
-    "on-scroll-up": "~/.local/scripts/changeVolume.sh up spotify",
-    "on-scroll-down": "~/.local/scripts/changeVolume.sh down spotify",
+    "on-scroll-up": "~/.local/scripts/playerctl.sh spotify up",
+    "on-scroll-down": "~/.local/scripts/playerctl.sh spotify down",
+    "max-length": 25,
+    "escape": true,
+    "tooltip": true,
+  },
+
+  "custom/yt-music": {
+    "exec": "/usr/bin/python3 ~/.local/scripts/mediaplayer.py --player YoutubeMusic",
+    "format": " {}",
+    "return-type": "json",
+    "on-click": "playerctl play-pause --player YoutubeMusic",
+    "on-click-right": "playerctl next --player YoutubeMusic",
+    "on-click-middle": "playerctl previous --player YoutubeMusic",
+    "on-scroll-up": "~/.local/scripts/playerctl.sh YoutubeMusic up",
+    "on-scroll-down": "~/.local/scripts/playerctl.sh YoutubeMusic down",
     "max-length": 25,
     "escape": true,
     "tooltip": true,
@@ -80,7 +94,7 @@
   },
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "   {:%a %d %b      %H:%M}",
+    "format": "   {:%a %d  %H:%M}",
     "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
