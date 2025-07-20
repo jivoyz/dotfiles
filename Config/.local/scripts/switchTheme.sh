@@ -25,7 +25,7 @@ sed -i "/^@import url/c\@import url(\"./themes/$THEME_NAME.css\");" ${confDir}/w
 ln -fs "${themesDir}/${1}/hyprland.theme" "${confDir}/hypr/theme.conf"
 
 # sway
-cp "${themesDir}/${1}/sway.theme" "${confDir}/sway/theme"
+cp "${themesDir}/${1}/sway.theme" "${confDir}/sway/theme.conf"
 swaymsg reload
 
 # fzf
