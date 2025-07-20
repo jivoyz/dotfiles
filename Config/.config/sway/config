@@ -11,14 +11,14 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term kitty
-set $browser floorp
+set $browser firefox
 # Your preferred application launcher
 set $menu rofi -show drun -no-case-sensitive -matching fuzzy
 
-gaps inner 4
-gaps outer 4
-default_border pixel 2
-for_window [all] border pixel 2
+gaps inner 0
+gaps outer 0
+# default_border pixel 1
+# for_window [all] border normal 1
 
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="nwg-look"] floating enable
@@ -29,11 +29,12 @@ assign [app_id="org.telegram.desktop"] 7
 assign [instance="spotify"] 6
 
 workspace_auto_back_and_forth yes
-# smart_gaps on
-# hide_edge_borders smart
-
-default_floating_border pixel
-font pango:monospace 0.01
+smart_gaps on
+hide_edge_borders smart
+#
+# default_floating_border normal
+# default_border normal
+font pango:JetBrainsMono Nerd Font 11
 titlebar_padding 1
 titlebar_border_thickness 0
 
@@ -77,6 +78,6 @@ input "type:keyboard" {
 #     }
 
 include /etc/sway/config.d/*
-include keybindings
-include startup
-include theme
+include keybindings.conf
+include startup.conf
+include theme.conf

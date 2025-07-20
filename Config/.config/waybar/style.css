@@ -1,39 +1,32 @@
-@import url("./themes/Catppuccin-Latte.css");
+@import url("./themes/Dracula.css");
 
 * {
   font-size: 16px;
   font-weight: 600;
+  /* all: initial; */
+  /* color: @fg; */
 }
 
 window#waybar {
-  background-color: transparent;
-  color: @fg;
-  border-radius: 8px;
-}
-
-#waybar > box {
-  margin: 4px 8px 0 8px;
-  padding: 2px;
   background-color: @bg;
-  border-radius: 8px;
+  color: @fg;
+  border-radius: 0px;
+  transition: all 0.3s;
 }
 
 .modules-left {
-  margin-left: 6px;
+  margin-left: 0px;
 }
 
 #workspaces button {
-  transition: 0.3s all;
-  padding: 0 6px;
+  /* transition: 0.3s all; */
+  min-width: 0;
+  padding: 0 12px;
   margin: 0px 0px;
-  border-radius: 4px;
+  border-radius: 0px;
   color: @fg;
   background-color: transparent;
 }
-
-/* #workspaces button:hover { */
-/*   background-color: transparent; */
-/* } */
 
 #workspaces button.focused {
   background-color: @wp-bg-active;
