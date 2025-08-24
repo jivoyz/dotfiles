@@ -11,7 +11,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term kitty
-set $browser firefox
+set $browser floorp
 # Your preferred application launcher
 set $menu rofi -show drun -no-case-sensitive -matching fuzzy
 
@@ -24,6 +24,8 @@ for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="nwg-look"] floating enable
 for_window [title="Add" app_id="anki"] floating enable
 for_window [title="Add" app_id="anki"] resize set 720 540
+
+assign [instance="com.github.th_ch.youtube_music"] 6
 
 assign [app_id="org.telegram.desktop"] 7
 assign [instance="spotify"] 6
