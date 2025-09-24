@@ -13,7 +13,10 @@ if status is-interactive
     zoxide init fish | source
     fish_add_path $HOME/.local/bin
     source ~/.config/fish/fzf.fish
+    source ~/.config/fish/flexoki.fish # theme
+
     set fish_cursor_default block
+    set fish_cursor_insert block
 
     # Set up fzf key bindings
     fzf --fish | source
@@ -23,15 +26,16 @@ if status is-interactive
     bind -M insert \cn "sh ~/.local/scripts/search-notes.sh"
 
 
-    alias ls="exa --icons"
-    alias la="exa --icons -a"
-    alias lla="exa --icons -l -a"
-    alias lst="exa -l -g -T --icons -L=2"
-    alias ll="exa -l -g --icons"
+    alias ls="eza --icons"
+    alias la="eza --icons -a"
+    alias lla="eza --icons -l -a"
+    alias lst="eza -l -g -T --icons -L=2"
+    alias ll="eza -l -g --icons"
 
     alias g="git"
 
     alias vim="nvim"
 
     set -gx EDITOR nvim
+    set -gx MANPAGER "nvim +Man!"
 end
