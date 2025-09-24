@@ -1,2 +1,5 @@
-client.focused #b0b846 #b0b846 #1d2021 #1d2021
-client.unfocused #1d2021 #1d2021 #e2cca9 #1d2021
+#                         border  backgr. text    indicator child_border 
+client.focused            #b0b846 #b0b846 #1d2021 #1d2021
+client.focused_tab_title  #b0b846 #504945 #1d2021
+client.unfocused          #1d2021 #1d2021 #e2cca9 #1d2021
+

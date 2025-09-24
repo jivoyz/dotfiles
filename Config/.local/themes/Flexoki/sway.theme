@@ -1,0 +1,4 @@
+#                         border  backgr. text    indicator child_border 
+client.focused            #66800B #879a39 #FFFCF0
+client.focused_tab_title  #66800B #575653 #FFFCF0
+client.unfocused          #2A2A37 #282726 #c9c7cd
