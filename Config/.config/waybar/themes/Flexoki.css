@@ -1,0 +1,4 @@
+@define-color bg rgb(28, 27, 26);
+@define-color fg rgb(206, 205, 195);
+@define-color wp-bg-active rgb(135, 154, 57);
+@define-color wp-fg-active @bg;
