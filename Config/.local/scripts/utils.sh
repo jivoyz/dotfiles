@@ -23,12 +23,14 @@ color_picker() {
 screenshot_area() {
   sleep 0.5
   area=$(slurp)
+  img_filename="$(date +%F_%H-%M-%S).png"
+
 
   if [[ -z "$area" ]]; then
     exit 1
   fi
 
-  path="$HOME/Pictures/$(date).png"
+  path="$HOME/Pictures/$img_filename.png"
   grim -g "$area" -c "$path"
   action=$(notify-send -A "Copy to clipboard" -i "$path" "Screenshot")
 
@@ -40,9 +42,16 @@ screenshot_area() {
 
 screenshot_screen() {
   sleep 0.5
-  path="$HOME/Pictures/$(date).png"
+  img_filename="$(date +%F_%H-%M-%S).png"
+  path="$HOME/Pictures/$img_filename.png"
   grim -c "$path"
-  notify-send -i "$path" "Screenshot"
+
+  action=$(notify-send -A "Copy to clipboard" -i "$path" "Screenshot")
+
+  if [ "$action" == 0 ]; then
+    wl-copy < $path 
+    notify-send "Copied image to clipboard"
+  fi
 }
 
 lock_screen() {
@@ -53,30 +62,9 @@ lock_screen() {
   fi
 }
 
-game_mode_hypr() {
-  if [[ "$XDG_CURRENT_DESKTOP" = "Hyprland" ]]; then
-    HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
-    if [ "$HYPRGAMEMODE" = 1 ] ; then
-        hyprctl --batch "\
-            keyword animations:enabled 0;\
-            keyword decoration:shadow:enabled 0;\
-            keyword decoration:blur:enabled 0;\
-            keyword general:gaps_in 0;\
-            keyword general:gaps_out 0;\
-            keyword general:border_size 1;\
-            keyword decoration:rounding 0"
-        exit
-    fi
-    hyprctl reload
-    notify-send "Game Mode Enabled"
-  else
-    notify-send -t 1000 "Not Hyprland"
-  fi
-}
-
 rofiStyles="window {location: north; width: 20%;} inputbar {enabled: false;}"
 
-choice=$(printf " Screenshot (Area)\n󰹑 Screenshot (Fullscreen)\n Lock Screen\n Color Picker\n󰊗 Game Mode (Hyprland)" | rofi -dmenu -theme-str "${rofiStyles}" -matching fuzzy -i)
+choice=$(printf " Screenshot (Area)\n󰹑 Screenshot (Fullscreen)\n Lock Screen\n Color Picker" | rofi -dmenu -theme-str "${rofiStyles}" -matching fuzzy -p "" -i)
 
 case "${choice}" in
   " Screenshot (Area)")
@@ -90,9 +78,6 @@ case "${choice}" in
     ;;
   " Color Picker")
     color_picker
-    ;;
-  "󰊗 Game Mode (Hyprland)")
-    game_mode_hypr
     ;;
   *)
     exit 1
