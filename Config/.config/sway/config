@@ -25,17 +25,14 @@ for_window [app_id="nwg-look"] floating enable
 for_window [title="Add" app_id="anki"] floating enable
 for_window [title="Add" app_id="anki"] resize set 720 540
 
-assign [instance="com.github.th_ch.youtube_music"] 6
-
-assign [app_id="org.telegram.desktop"] 7
 assign [instance="spotify"] 6
+assign [app_id="org.telegram.desktop"] 7
+assign [instance="vesktop"] 7
 
 workspace_auto_back_and_forth yes
 smart_gaps on
 hide_edge_borders smart
-#
-# default_floating_border normal
-# default_border normal
+
 font pango:JetBrainsMono Nerd Font 11
 titlebar_padding 1
 titlebar_border_thickness 0
