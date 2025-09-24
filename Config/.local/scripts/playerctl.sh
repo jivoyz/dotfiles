@@ -12,7 +12,6 @@ if playerctl --player="$player" status; then
   title="$(playerctl --player="$player" metadata --format '{{title}}')"
   album="$(playerctl --player="$player" metadata --format '{{album}}')"
   artUrl="$(playerctl --player="$player" metadata mpris:artUrl)"
-  # volume=$(playerctl --player="$player" volume | awk '{ printf "%.0f\n", $0 * 100 }')
 else
   echo "undefined player: $player"
   exit 1
@@ -23,6 +22,8 @@ if [[ "$player" == "YoutubeMusic" ]]; then
   icon="$icons/yt-music.svg"
 elif [[ "$player" == "spotify" ]]; then
   icon="$icons/spotify.svg"
+else
+  icon=""
 fi
 
 parse_volume() {
